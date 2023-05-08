@@ -1,3 +1,11 @@
 AAAAAA
 
 New Line
+
+void setup () {
+
+}
+
+void draw() {
+
+}
