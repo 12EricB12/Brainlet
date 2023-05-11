@@ -12,9 +12,4 @@ class Questions {
     
     return finalOptions[0];
   }
-  
-  String getOptions(int numQuestions) {
-    
-  
-  }
 }
