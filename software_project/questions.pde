@@ -3,7 +3,7 @@ class Questions {
   ArrayList<String> options = new ArrayList<String>();
   
   Questions(String[] fileStrings) {
-    this.fullLine = fileStrings[round(random(fileStrings.length))];
+    this.fullLine = fileStrings[round(random(fileStrings.length))]; // Loads one line from the full file
   }
   
   String getAnswer() {
@@ -13,5 +13,8 @@ class Questions {
     return finalOptions[0];
   }
   
-  String getOptions(int numQuestions) {}
+  String getOptions(int numQuestions) {
+    
+  
+  }
 }
