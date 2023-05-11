@@ -1,10 +1,11 @@
+import g4p_controls.*;
+
 void setup() {
-
-  println("hello!");
-
+  size(800,800);
+  background(255);
+  createGUI();
 }
 
 void draw() {
-
-
+  
 }
