@@ -3,7 +3,7 @@ import java.util.Arrays;
  
 Questions geoEasy, geoMedium, geoHard;
 
-import java.util.*;
+//import java.util.*;
 
 int lvl; // different difficulty levels
 String answer, question;
@@ -38,7 +38,6 @@ void draw() {
   //}
   
   question = String.join("", splitQuestion);
-  
   text(question, 40, 120, 700, 700);
   fill(0);
 }
