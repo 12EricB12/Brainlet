@@ -102,6 +102,7 @@ public void createGUI(){
   numTries.setShowValue(true);
   numTries.setLimits(1, 1, 3);
   numTries.setNbrTicks(3);
+  numTries.setStickToTicks(true);
   numTries.setShowTicks(true);
   numTries.setNumberFormat(G4P.INTEGER, 0);
   numTries.setOpaque(false);
