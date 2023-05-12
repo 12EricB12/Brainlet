@@ -3,6 +3,7 @@ import java.util.Arrays;
  
 Questions geoEasy, geoMedium, geoHard;
 
+import java.util.*;
 
 int lvl; // different difficulty levels
 String answer, question;
@@ -16,6 +17,11 @@ void setup() {
   // Get the questions and answers from the documents
   answer = geoEasy.getAnswer();
   question = geoEasy.getQuestion();
+
+  Questions geoQ = loadQuestions(1);
+  
+  answer = geoQ.getAnswer();
+  question = geoQ.getQuestion();
   
   splitQuestion = question.split("");
 }
