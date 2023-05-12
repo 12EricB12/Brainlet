@@ -19,11 +19,9 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 } //_CODE_:window1:454168:
 
 public void slider1_change1(GSlider source, GEvent event) { //_CODE_:slider1:484514:
-  int value = getS
 } //_CODE_:slider1:484514:
 
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
-  println("slider1 - GSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:diffLevel:484514:
 
 public void answer2(GButton source, GEvent event) { //_CODE_:Answer2:654967:
