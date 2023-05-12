@@ -1,5 +1,4 @@
 String state; // the state of the software in various stages
-
 import g4p_controls.*;
 
 Questions geoEasy, geoMedium, geoHard;

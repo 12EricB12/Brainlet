@@ -1,5 +1,5 @@
 
-void loadQuestions() {
+void loadQuestions(int lvl) {
   
   // Easy mode was chosen
   if (lvl == 1) {
