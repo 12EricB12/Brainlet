@@ -1,4 +1,5 @@
 String state; // the state of the software in various stages
+int lvl;
 import g4p_controls.*;
 
 Questions geoEasy, geoMedium, geoHard;
@@ -6,7 +7,6 @@ Questions geoEasy, geoMedium, geoHard;
 String answer, question;
 
 void setup() {
-  loadQuestions();
   size(800,800);
   background(255);
   createGUI();
