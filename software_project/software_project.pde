@@ -1,8 +1,11 @@
-String state; // the state of the software in various stages
-int lvl;
 import g4p_controls.*;
+import java.util.Arrays;
+ 
+Questions geoEasy, geoMedium, geoHard;
+
 import java.util.*;
 
+int lvl; // different difficulty levels
 String answer, question;
 String[] splitQuestion;
 
@@ -11,6 +14,10 @@ void setup() {
   background(255);
   createGUI();
   
+  // Get the questions and answers from the documents
+  answer = geoEasy.getAnswer();
+  question = geoEasy.getQuestion();
+
   Questions geoQ = loadQuestions(1);
   
   answer = geoQ.getAnswer();
@@ -29,6 +36,7 @@ void draw() {
     if (counter == 5) {
       splitQuestion[i] = splitQuestion[i] + "\n";
     }
+    
     counter++;
   }
   
