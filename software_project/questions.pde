@@ -10,6 +10,7 @@ class Questions {
     String initalOptions = fullLine.split("#")[1];
     String[] finalOptions = initalOptions.split(", ");
     
+    println(this.fullLine);
     return finalOptions[0];
   }
 }

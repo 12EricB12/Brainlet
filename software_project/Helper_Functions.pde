@@ -1,0 +1,10 @@
+
+void initialScreen() {
+  state = "menu";
+  
+  
+  
+  
+  
+  
+}
