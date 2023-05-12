@@ -18,13 +18,9 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
   appc.background(230);
 } //_CODE_:window1:454168:
 
-
-public void slider1_change1(GSlider source, GEvent event) { //_CODE_:slider1:484514:
-} //_CODE_:slider1:484514:
-
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
   println("slider1 - GSlider >> GEvent." + event + " @ " + millis());
-  int lvl = 1;
+  lvl = 1;
   loadQuestions(lvl);
 } //_CODE_:diffLevel:484514:
 
@@ -51,6 +47,10 @@ public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
 public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
   println("answer4 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:answer4:556391:
+
+public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
+  println("reset - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:reset:241784:
 
 
 
@@ -85,16 +85,16 @@ public void createGUI(){
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("Hard");
   label3.setOpaque(false);
-  answer2 = new GButton(window1, 6, 217, 80, 30);
+  answer2 = new GButton(window1, 174, 169, 80, 30);
   answer2.setText("Answer 2");
   answer2.addEventHandler(this, "snswer2");
-  answer1 = new GButton(window1, 6, 170, 80, 30);
+  answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "Answer1");
-  answer3 = new GButton(window1, 6, 260, 80, 30);
+  answer3 = new GButton(window1, 37, 239, 80, 30);
   answer3.setText("Answer 3");
   answer3.addEventHandler(this, "Answer3");
-  nextQuestion = new GButton(window1, 197, 301, 80, 30);
+  nextQuestion = new GButton(window1, 157, 307, 80, 30);
   nextQuestion.setText("Next Question");
   nextQuestion.addEventHandler(this, "NextQuestion");
   numTries = new GSlider(window1, 163, 89, 121, 54, 10.0);
@@ -110,9 +110,12 @@ public void createGUI(){
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label4.setText("Controls the amount of tries on each question");
   label4.setOpaque(false);
-  answer4 = new GButton(window1, 6, 303, 80, 30);
+  answer4 = new GButton(window1, 174, 239, 80, 30);
   answer4.setText("Answer 4");
   answer4.addEventHandler(this, "Answer4");
+  reset = new GButton(window1, 45, 307, 80, 30);
+  reset.setText("Reset");
+  reset.addEventHandler(this, "Reset");
   window1.loop();
 }
 
@@ -130,3 +133,4 @@ GButton nextQuestion;
 GSlider numTries; 
 GLabel label4; 
 GButton answer4; 
+GButton reset; 
