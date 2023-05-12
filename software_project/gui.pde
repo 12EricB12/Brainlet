@@ -18,6 +18,12 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
   appc.background(230);
 } //_CODE_:window1:454168:
 
+
+public void slider1_change1(GSlider source, GEvent event) { //_CODE_:slider1:484514:
+} //_CODE_:slider1:484514:
+
+public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
+
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
   println("slider1 - GSlider >> GEvent." + event + " @ " + millis());
   int lvl = diffLevel.getValueI();

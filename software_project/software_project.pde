@@ -2,12 +2,12 @@ String state; // the state of the software in various stages
 
 import g4p_controls.*;
 
-Questions geoEasy;
+Questions geoEasy, geoMedium, geoHard;
 
 String answer, question;
 
 void setup() {
-  geoEasy = new Questions(loadStrings("Geography/Easy.txt"));
+  loadQuestions();
   size(800,800);
   background(255);
   createGUI();
