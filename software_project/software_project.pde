@@ -1,15 +1,14 @@
 String state; // the state of the software in various stages
-
+int lvl;
 import g4p_controls.*;
 import java.utils.Arrays;
 
-Questions geoEasy;
+Questions geoEasy, geoMedium, geoHard;
 
 String answer, question;
 String[] splitQuestion;
 
 void setup() {
-  geoEasy = new Questions(loadStrings("Geography/Easy.txt"));
   size(800,800);
   background(255);
   createGUI();

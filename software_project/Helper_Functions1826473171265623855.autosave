@@ -1,7 +1,7 @@
 
-void loadQuestions(int lvl) {
+void loadQuestions() {
   
-  // Easy mode was chosen
+   // Easy mode was chosen
   if (lvl == 1) {
     geoEasy = new Questions(loadStrings("Geography/Easy.txt"));
   }
@@ -11,6 +11,7 @@ void loadQuestions(int lvl) {
     geoMedium = new Questions(loadStrings("Geography/Moderate.txt"));
   }
   
+  // Hard mode was chosen
   else {
     geoHard = new Questions(loadStrings("Geography/Hard.txt"));
     
