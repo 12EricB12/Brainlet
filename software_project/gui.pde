@@ -43,6 +43,10 @@ public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
   println("numTries - GSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:numTries:752762:
 
+public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
+  println("answer4 - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:answer4:556391:
+
 
 
 // Create all the GUI controls. 
@@ -56,48 +60,53 @@ public void createGUI(){
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
-  diffLevel = new GSlider(window1, 52, 89, 100, 40, 10.0);
+  diffLevel = new GSlider(window1, 23, 89, 100, 40, 10.0);
   diffLevel.setLimits(1, 1, 3);
+  diffLevel.setNbrTicks(3);
   diffLevel.setStickToTicks(true);
   diffLevel.setShowTicks(true);
   diffLevel.setNumberFormat(G4P.INTEGER, 0);
   diffLevel.setOpaque(false);
   diffLevel.addEventHandler(this, "changeDiffLevel");
-  label1 = new GLabel(window1, 29, 76, 37, 17);
+  label1 = new GLabel(window1, 2, 76, 37, 17);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Easy");
   label1.setOpaque(false);
-  label2 = new GLabel(window1, 73, 76, 57, 20);
+  label2 = new GLabel(window1, 47, 76, 57, 20);
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label2.setText("Moderate");
   label2.setOpaque(false);
-  label3 = new GLabel(window1, 141, 76, 36, 18);
+  label3 = new GLabel(window1, 111, 76, 36, 18);
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("Hard");
   label3.setOpaque(false);
-  answer2 = new GButton(window1, 6, 244, 80, 30);
+  answer2 = new GButton(window1, 6, 217, 80, 30);
   answer2.setText("Answer 2");
   answer2.addEventHandler(this, "snswer2");
-  answer1 = new GButton(window1, 6, 189, 80, 30);
+  answer1 = new GButton(window1, 6, 170, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "Answer1");
-  answer3 = new GButton(window1, 6, 299, 80, 30);
+  answer3 = new GButton(window1, 6, 260, 80, 30);
   answer3.setText("Answer 3");
   answer3.addEventHandler(this, "Answer3");
-  nextQuestion = new GButton(window1, 148, 359, 80, 30);
+  nextQuestion = new GButton(window1, 197, 301, 80, 30);
   nextQuestion.setText("Next Question");
   nextQuestion.addEventHandler(this, "NextQuestion");
-  numTries = new GSlider(window1, 140, 209, 121, 54, 10.0);
+  numTries = new GSlider(window1, 163, 89, 121, 54, 10.0);
   numTries.setShowValue(true);
-  numTries.setLimits(1, 1, 2);
+  numTries.setLimits(1, 1, 3);
+  numTries.setNbrTicks(3);
   numTries.setShowTicks(true);
   numTries.setNumberFormat(G4P.INTEGER, 0);
   numTries.setOpaque(false);
   numTries.addEventHandler(this, "numofTries");
-  label4 = new GLabel(window1, 128, 179, 151, 30);
+  label4 = new GLabel(window1, 147, 60, 151, 30);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label4.setText("Controls the amount of tries on each question");
   label4.setOpaque(false);
+  answer4 = new GButton(window1, 6, 303, 80, 30);
+  answer4.setText("Answer 4");
+  answer4.addEventHandler(this, "Answer4");
   window1.loop();
 }
 
@@ -114,3 +123,4 @@ GButton answer3;
 GButton nextQuestion; 
 GSlider numTries; 
 GLabel label4; 
+GButton answer4; 
