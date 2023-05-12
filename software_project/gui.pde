@@ -18,10 +18,6 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
   appc.background(230);
 } //_CODE_:window1:454168:
 
-public void slider1_change1(GSlider source, GEvent event) { //_CODE_:slider1:484514:
-  int value = getS
-} //_CODE_:slider1:484514:
-
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
   println("slider1 - GSlider >> GEvent." + event + " @ " + millis());
   int lvl = diffLevel.getValueI();
@@ -98,7 +94,7 @@ public void createGUI(){
   numTries.setNumberFormat(G4P.INTEGER, 0);
   numTries.setOpaque(false);
   numTries.addEventHandler(this, "numofTries");
-  label4 = new GLabel(window1, 128, 179, 151, 20);
+  label4 = new GLabel(window1, 128, 179, 151, 30);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label4.setText("Controls the amount of tries on each question");
   label4.setOpaque(false);
