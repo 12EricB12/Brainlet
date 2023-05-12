@@ -13,7 +13,6 @@ class Questions {
     String answers = optionsSplit[1];
     String[] finalOptions = answers.split(", ");
     
-    println(this.fullLine);
     return finalOptions[0];
   }
   
