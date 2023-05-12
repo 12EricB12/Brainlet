@@ -10,14 +10,11 @@ String answer, question;
 String[] splitQuestion;
 
 void setup() {
-  size(800,800);
+  size(800, 800);
   background(255);
   createGUI();
   
   // Get the questions and answers from the documents
-  answer = geoEasy.getAnswer();
-  question = geoEasy.getQuestion();
-
   Questions geoQ = loadQuestions(1);
   
   answer = geoQ.getAnswer();
@@ -27,21 +24,21 @@ void setup() {
 }
 
 void draw() {
-  textSize(25);
+  textSize(20);
   textAlign(LEFT);
   
-  int counter = 0;
+  //int counter = 0;
   
-  for (int i = 0; i < splitQuestion.length; i++) {
-    if (counter == 5) {
-      splitQuestion[i] = splitQuestion[i] + "\n";
-    }
+  //for (int i = 0; i < splitQuestion.length; i++) {
+  //  if (counter == 5) {
+  //    splitQuestion[i] = splitQuestion[i] + "\n";
+  //  }
     
-    counter++;
-  }
+  //  counter++;
+  //}
   
   question = String.join("", splitQuestion);
   
-  text(question, 40, 120);
+  text(question, 40, 120, 700, 700);
   fill(0);
 }
