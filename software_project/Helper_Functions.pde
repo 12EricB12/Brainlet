@@ -1,6 +1,6 @@
 
-void initialScreen() {
-  state = "menu";
+void loadQuestions() {
+  
   
   
   
