@@ -32,6 +32,8 @@ void draw() {
     counter++;
   }
   
+  question = String.join("", splitQuestion);
+  
   text(question, 40, 120);
   fill(0);
 }
