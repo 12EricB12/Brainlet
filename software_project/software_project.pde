@@ -15,9 +15,6 @@ void setup() {
   createGUI();
   
   // Get the questions and answers from the documents
-  answer = geoEasy.getAnswer();
-  question = geoEasy.getQuestion();
-
   Questions geoQ = loadQuestions(1);
   
   answer = geoQ.getAnswer();
@@ -27,14 +24,15 @@ void setup() {
 }
 
 void draw() {
-  textSize(25);
+  textSize(10);
   textAlign(LEFT);
   
   int counter = 0;
   
   for (int i = 0; i < splitQuestion.length; i++) {
-    if (counter == 5) {
+    if (counter == 10) {
       splitQuestion[i] = splitQuestion[i] + "\n";
+      counter = 0;
     }
     
     counter++;
