@@ -5,7 +5,7 @@ class Questions {
   ArrayList<String> options = new ArrayList<String>();
   
   Questions(String[] fileStrings) {
-    this.fullLine = fileStrings[round(random(fileStrings.length-1))]; // Loads one line from the full file
+    this.fullLine = fileStrings[round( random( fileStrings.length-1 ))]; // Loads one line from the full file
     this.optionsSplit = this.fullLine.split("#");
   }
   

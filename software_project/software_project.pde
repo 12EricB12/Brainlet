@@ -1,5 +1,5 @@
 import g4p_controls.*;
-import java.util.Arrays;
+//import java.util.Arrays;
  
 Questions geoEasy, geoMedium, geoHard;
 
@@ -14,8 +14,8 @@ void setup() {
   background(255);
   createGUI();
   
-  // Get the questions and answers from the documents
-  Questions geoQ = loadQuestions(1);
+  //Get the questions and answers from the relevant document
+  Questions geoQ = loadQuestions(lvl);
   
   answer = geoQ.getAnswer();
   question = geoQ.getQuestion();
@@ -24,6 +24,7 @@ void setup() {
 }
 
 void draw() {
+ 
   textSize(20);
   textAlign(LEFT);
   
@@ -38,6 +39,6 @@ void draw() {
   //}
   
   question = String.join("", splitQuestion);
-  text(question, 40, 120, 700, 700);
+  text(question, 40, 100, 700, 700);
   fill(0);
 }
