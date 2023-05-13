@@ -1,11 +1,7 @@
 import g4p_controls.*;
-//import java.util.Arrays;
- 
-Questions geoEasy, geoMedium, geoHard;
 
-//import java.util.*;
-
-int lvl; // different difficulty levels
+Questions geoEasy, geoMedium, geoHard, geoQ;
+int lvl;
 String answer, question;
 String[] splitQuestion;
 
@@ -14,31 +10,25 @@ void setup() {
   background(255);
   createGUI();
   
-  //Get the questions and answers from the relevant document
-  Questions geoQ = loadQuestions(lvl);
-  
-  answer = geoQ.getAnswer();
-  question = geoQ.getQuestion();
-  
-  splitQuestion = question.split("");
+  // Load the text documents
+  geoEasy = new Questions(loadStrings("Geography/Easy.txt"));
+  geoMedium = new Questions(loadStrings("Geography/Moderate.txt"));
+  geoHard = new Questions(loadStrings("Geography/Hard.txt"));
 }
 
+
 void draw() {
- 
+  background(255);
+  
+  // Formatting
   textSize(20);
+  fill(0);
   textAlign(LEFT);
+
+  displayQuestions(); //<>//
+  noLoop();
   
-  //int counter = 0;
-  
-  //for (int i = 0; i < splitQuestion.length; i++) {
-  //  if (counter == 5) {
-  //    splitQuestion[i] = splitQuestion[i] + "\n";
-  //  }
-    
-  //  counter++;
-  //}
-  
+  // Creates the text on screen
   question = String.join("", splitQuestion);
   text(question, 40, 100, 700, 700);
-  fill(0);
 }
