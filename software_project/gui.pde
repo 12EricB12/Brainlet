@@ -19,12 +19,12 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 } //_CODE_:window1:454168:
 
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
-  println("slider1 - GSlider >> GEvent." + event + " @ " + millis());
-  lvl = 1;
-  loadQuestions(lvl);
+  lvl = diffLevel.getValueI(); //<>//
+  redraw();
+ 
 } //_CODE_:diffLevel:484514:
 
-public void snswer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
+public void answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
   println("button1 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:answer2:654967:
 
@@ -87,7 +87,7 @@ public void createGUI(){
   label3.setOpaque(false);
   answer2 = new GButton(window1, 174, 169, 80, 30);
   answer2.setText("Answer 2");
-  answer2.addEventHandler(this, "snswer2");
+  answer2.addEventHandler(this, "answer2");
   answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "Answer1");

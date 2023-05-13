@@ -1,19 +1,23 @@
-Questions loadQuestions(int lvl) {
-  
+void displayQuestions() {
   // Easy mode was chosen
-  if (lvl == 1) {
-    Questions geoEasy = new Questions(loadStrings("Geography/Easy.txt"));
-    return geoEasy;
-  }
+  if (lvl == 0) { 
+    geoQ = geoEasy;
+  } 
   
   // Moderate mode was chosen
   else if (lvl == 2) {
-    Questions geoMedium = new Questions(loadStrings("Geography/Moderate.txt"));
-    return geoMedium;
+    geoQ = geoMedium;
   }
   
-  else {
-    Questions geoHard = new Questions(loadStrings("Geography/Hard.txt"));
-    return geoHard;
+  // Hard mode was chosen
+  else if (lvl == 3) {
+    geoQ = geoHard;
   }
+  
+  // Gets the questions and answers from the text file
+  answer = geoQ.getAnswer();
+  question = geoQ.getQuestion();
+  splitQuestion = question.split("");
+  
+  
 }
