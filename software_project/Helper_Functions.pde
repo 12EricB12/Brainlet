@@ -17,6 +17,7 @@ void displayQuestions() {
   // Gets the questions and answers from the text file
   answer = geoQ.getAnswer();
   question = geoQ.getQuestion();
+  options = geoQ.randomizeSelection(4);
   splitQuestion = question.split("");
   
   
