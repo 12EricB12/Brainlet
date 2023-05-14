@@ -46,13 +46,13 @@ void showText() {
   }
 }
 
-void nextQuestion() { //doesnt work properly yet
-  for (int i = 1; i < splitQuestion.length; i++) {
-    String nextQuestion = splitQuestion[i];
-    question = String.join("", nextQuestion);
-    text(question, 40, 100, 700, 700);  
+//void nextQuestion() { //doesnt work properly yet
+//  for (int i = 1; i < splitQuestion.length; i++) {
+//    String nextQuestion = splitQuestion[i];
+//    question = String.join("", nextQuestion);
+//    text(question, 40, 100, 700, 700);  
 
- }
+// }
 
   
-}
+//}

@@ -25,6 +25,27 @@ class Questions {
     return question;
   }
   
+  // FIX
+  String nextQuestion() {
+    
+    for (int i = 0; i < optionsSplit.length; i++) {
+      
+      String nextRow = fileName[i];
+      println(nextRow);
+      
+      String[] nextQuestion = nextRow.split("");
+      
+      question = nextQuestion[0];
+      
+      question = String.join("", nextQuestion);
+      //text(question, 40, 100, 700, 700);  
+      //redraw();
+    }
+    
+    return question;
+  }
+  
+  
   String[] randomizeSelection(int numQuestions) { // For now, the numQuestions parameter will be set at 4. If we have extra time and can add more question slots, you can increase this parameter.
     String selection = optionsSplit[1];
     String[] selectionLst = selection.split(", ");
