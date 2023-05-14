@@ -33,46 +33,50 @@ class Questions {
     if (numQuestions < 4) {
       choices = Arrays.copyOfRange(selectionLst, 1, numQuestions);
     }
+    
     else if (numQuestions == 4) {
       choices = Arrays.copyOfRange(selectionLst, 1, 4);
     }
+    
     else {
       ArrayList<String> options = new ArrayList<String>();
       choices = Arrays.copyOfRange(selectionLst, 1, 4);
       
+      // First loop for adding the original questions
       for (int i = 0; i < 3; i++) {
-        options.add(choices[i]); // First loop for adding the original questions
+        options.add(choices[i]); 
       }
       
       for (int i = 0; i < numQuestions - 4; i++) {
-        this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Loads one line from the full file
-        this.optionsSplit = this.fullLine.split("#"); // Split the line
+        // Loads one line from the full file
+        this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; 
         
-        String[] fullOptionSplit = this.optionsSplit[1].split(", "); // Take the answer and split them
-        String optionRandom = fullOptionSplit[round(random(this.optionsSplit.length-1))]; // Randomly selects an answer from a different question to use as an option. Only to be used in more than 4 options.
+        // Splits the line
+        this.optionsSplit = this.fullLine.split("#"); 
         
+        // Take the answer and split them
+        String[] fullOptionSplit = this.optionsSplit[1].split(", "); 
+        
+        // Randomly selects an answer from a different question to use as an option. Only to be used in more than 4 options.
+        String optionRandom = fullOptionSplit[round(random(this.optionsSplit.length-1))]; 
         int tries = 0; // Used to make sure that the program doesn't try to grab a new element too many times. Prevents the program from running slowly
         
-        if (options.contains(optionRandom) || optionRandom.equals(answer)) { // Goes through and makes sure that the randomly grabbed element doesn't appear again, if already present in the options array
-          while (tries <= 5 && options.contains(optionRandom) || tries <= 5 && optionRandom.equals(answer)) {
-            // Code from above
-            this.fullLine = this.fileName[round( random( this.fileName.length-1 ))];
-            this.optionsSplit = this.fullLine.split("#");
-            
+        // Ensures that the randomly grabbed element doesn't appear again, if already present in the options array
+        if (options.contains(optionRandom) || optionRandom.equals(answer)) { 
+          
+          while (tries <= 5 && options.contains(optionRandom) || tries <= 5 && optionRandom.equals(answer)) {            
             fullOptionSplit = this.optionsSplit[1].split(", ");
             optionRandom = fullOptionSplit[round(random(this.optionsSplit.length-1))];
           }
         }
         
         options.add(optionRandom); 
-        
       }
       
-      choices = options.toArray(new String[options.size()]); // Converts arrayList to array
-      
+      // Converts the arrayList to array
+      choices = options.toArray(new String[options.size()]);  
     }
     
     return choices;
-    
   }
 }

@@ -20,6 +20,7 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
   lvl = diffLevel.getValueI(); //<>//
+  println(lvl);
   redraw();
  
 } //_CODE_:diffLevel:484514:
@@ -37,7 +38,7 @@ public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
 } //_CODE_:answer3:262656:
 
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
-  println("button4 - GButton >> GEvent." + event + " @ " + millis());
+  nextQuestion();
 } //_CODE_:nextQuestion:276653:
 
 public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
