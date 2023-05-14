@@ -12,6 +12,10 @@ class Questions {
     this.optionsSplit = this.fullLine.split("#");
   }
   
+  void randomizeNext() {
+    this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Refreshes the question and forces it to move on
+  }
+  
   String getAnswer() {
     String answers = optionsSplit[1];
     String[] finalOptions = answers.split(", ");
@@ -27,22 +31,26 @@ class Questions {
   
   // FIX
   String nextQuestion() {
+    // Note: This function will randomly shuffle through the selection. A non-shuffle approach can be added later if we have time.
+    this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Loads one line from the full file
+    this.optionsSplit = this.fullLine.split("#");
     
-    for (int i = 0; i < optionsSplit.length; i++) {
-      
-      String nextRow = fileName[i];
-      println(nextRow);
-      
-      String[] nextQuestion = nextRow.split("");
-      
-      question = nextQuestion[0];
-      
-      question = String.join("", nextQuestion);
-      //text(question, 40, 100, 700, 700);  
-      //redraw();
-    }
-    
+    String question = this.optionsSplit[0];
     return question;
+    // OLD CODE
+    //for (int i = 0; i < optionsSplit.length; i++) {
+      
+    //  String nextRow = this.fileName[i];
+    //  println(nextRow);
+      
+    //  String[] nextQuestion = nextRow.split("");
+      
+    //  question = nextQuestion[0];
+      
+    //  question = String.join("", nextQuestion);
+    //}
+    
+    //return question;
   }
   
   

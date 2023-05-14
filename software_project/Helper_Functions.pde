@@ -15,9 +15,9 @@ void loadQuestions() {
   }
   
   // Gets the questions and answers from the text file
-  answer = geoQ.getAnswer();
-  question = geoQ.getQuestion();
-  options = geoQ.randomizeSelection(4);
+  answer = geoQ.getAnswer(); // Generates the answer to the problem, always the first option (answer shuffle will be added later)
+  question = geoQ.getQuestion(); // Generates the question
+  options = geoQ.randomizeSelection(4); // Generates the options that the user can pick from
   splitQuestion = question.split("");
 }
 
@@ -46,13 +46,13 @@ void showText() {
   }
 }
 
-//void nextQuestion() { //doesnt work properly yet
-//  for (int i = 1; i < splitQuestion.length; i++) {
-//    String nextQuestion = splitQuestion[i];
-//    question = String.join("", nextQuestion);
-//    text(question, 40, 100, 700, 700);  
-
-// }
-
+void nextQuestion() { //doesnt work properly yet
+  geoQ.randomizeNext();
   
-//}
+  question = geoQ.nextQuestion();
+  answer = geoQ.getAnswer();
+  options = geoQ.randomizeSelection(4);
+  splitQuestion = question.split("");
+  
+  println(answer, question, options);
+}

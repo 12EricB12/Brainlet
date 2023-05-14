@@ -38,7 +38,9 @@ public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
 } //_CODE_:answer3:262656:
 
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
-  geoQ.nextQuestion();
+  nextQuestion();
+  showText();
+  redraw();
 } //_CODE_:nextQuestion:276653:
 
 public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
