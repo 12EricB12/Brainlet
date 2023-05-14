@@ -29,28 +29,15 @@ class Questions {
     return question;
   }
   
-  // FIX
+  
   String nextQuestion() {
+    
     // Note: This function will randomly shuffle through the selection. A non-shuffle approach can be added later if we have time.
-    this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Loads one line from the full file
+    //this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Loads one line from the full file
     this.optionsSplit = this.fullLine.split("#");
     
     String question = this.optionsSplit[0];
     return question;
-    // OLD CODE
-    //for (int i = 0; i < optionsSplit.length; i++) {
-      
-    //  String nextRow = this.fileName[i];
-    //  println(nextRow);
-      
-    //  String[] nextQuestion = nextRow.split("");
-      
-    //  question = nextQuestion[0];
-      
-    //  question = String.join("", nextQuestion);
-    //}
-    
-    //return question;
   }
   
   
