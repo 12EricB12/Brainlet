@@ -35,6 +35,11 @@ void draw() {
   displayQuestions(); //<>//
   noLoop();
   
+  showText();
+  
+}
+
+void showText() {
   // Creates the text on screen
   question = String.join("", splitQuestion);
   text(question, 40, 100, 700, 700);
@@ -42,11 +47,11 @@ void draw() {
   int yVal = 500;
   
   textSize(answerSize); // Creates the text for the answer
-  text(answer, 40, yVal - answerSize, 700, 700);
+  text("1. " + answer, 40, yVal - answerSize, 700, 700);
   
   for (int i = 0; i < options.length; i++) {
     textSize(answerSize); // Creates the text for all the options
-    text(options[i], 40, yVal, 700, 700);
+    text(String.valueOf(i + 2) + ". " + options[i], 40, yVal, 700, 700);
     yVal += answerSize; // Sets the new text Y value
     println(yVal);
   }
