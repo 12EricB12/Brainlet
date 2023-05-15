@@ -1,9 +1,17 @@
 import g4p_controls.*;
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
+
 int lvl;
+int answerSize = 20;
+boolean nextQuestionClicked;
+PFont myFont;
+
+
 String answer, question;
 String[] splitQuestion;
+String[] options;
+
 
 void setup() {
   size(800, 800);
@@ -17,19 +25,20 @@ void setup() {
   
 }
 
-
 void draw() {
-  background(255);
+  background(254, 221, 216);
   
   // Formatting
   textSize(20);
   fill(0);
+  
   textAlign(LEFT);
 
-  displayQuestions(); //<>//
+  loadQuestions(); //<>//
+  showText();
+  
   noLoop();
   
-  // Creates the text on screen
-  question = String.join("", splitQuestion);
-  text(question, 40, 100, 700, 700);
+  
+  
 }
