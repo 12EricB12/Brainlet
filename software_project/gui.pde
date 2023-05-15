@@ -30,7 +30,8 @@ public void answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
 } //_CODE_:answer2:654967:
 
 public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
-  println("button2 - GButton >> GEvent." + event + " @ " + millis());
+  answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  
 } //_CODE_:answer1:929402:
 
 public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
@@ -38,6 +39,10 @@ public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
 } //_CODE_:answer3:262656:
 
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
+  G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
+  answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  
+  
   nextQuestion();
   showText();
   redraw();

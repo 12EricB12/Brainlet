@@ -3,7 +3,9 @@ import g4p_controls.*;
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
 int lvl;
-int answerSize = 23;
+int answerSize = 20;
+boolean nextQuestionClicked;
+PFont myFont;
 
 
 String answer, question;
@@ -24,7 +26,7 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  background(254, 221, 216);
   
   // Formatting
   textSize(20);
