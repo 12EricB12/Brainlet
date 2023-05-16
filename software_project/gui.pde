@@ -79,10 +79,10 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  start = new GButton(this, 352, 334, 108, 51);
+  start = new GButton(this, 342, 208, 108, 51);
   start.setText("Start");
   start.addEventHandler(this, "button1_click1");
-  sublist = new GDropList(this, 360, 403, 90, 60, 2, 10);
+  sublist = new GDropList(this, 353, 274, 90, 60, 2, 10);
   sublist.setItems(loadStrings("list_215520"), 0);
   sublist.addEventHandler(this, "dropList1_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);

@@ -14,7 +14,7 @@ String[] options;
 String winState;
 
 void setup() {
-  size(800, 800);
+  size(800, 400);
   background(255);
   createGUI();
   displayStart();
