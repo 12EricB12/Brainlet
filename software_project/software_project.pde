@@ -26,13 +26,12 @@ void setup() {
 }
 
 void draw() {
+  background(254, 221, 216);
   if (winState == "start") {
-    background(254, 221, 216);
     fill(0);
     textSize(50);
     text("Tester", width/2-100, 100);
   } else if (winState == "Main") {
-    background(254, 221, 216);
 
     // Formatting
     textSize(20);
