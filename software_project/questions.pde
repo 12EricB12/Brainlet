@@ -83,6 +83,7 @@ class Questions {
           while (tries <= 5 && options.contains(optionRandom) || tries <= 5 && optionRandom.equals(answer)) {            
             fullOptionSplit = this.optionsSplit[1].split(", ");
             optionRandom = fullOptionSplit[round(random(this.optionsSplit.length-1))];
+            tries++;
           }
         }
         
