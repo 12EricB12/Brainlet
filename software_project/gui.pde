@@ -15,8 +15,7 @@
  */
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724:
-  println("start - GButton >> GEvent." + event + " @ " + millis());
-  winState = "Main";
+  windowName = "Main";
   window1.setVisible(true);
   start.setVisible(false);
   sublist.setVisible(false);
@@ -36,7 +35,7 @@ public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:4
   redraw();
 } //_CODE_:diffLevel:484514:
 
-public void snswer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
+public void Answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
   println("button1 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:answer2:654967:
 
@@ -51,7 +50,6 @@ public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-
 
   nextQuestion();
   showText();
@@ -111,7 +109,7 @@ public void createGUI(){
   label3.setOpaque(false);
   answer2 = new GButton(window1, 174, 169, 80, 30);
   answer2.setText("Answer 2");
-  answer2.addEventHandler(this, "snswer2");
+  answer2.addEventHandler(this, "Answer2");
   answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "Answer1");

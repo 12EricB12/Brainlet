@@ -1,7 +1,9 @@
 void displayStart() {
-  winState = "start";
+  
+  windowName = "start";
   window1.setVisible(false);
 }
+
 void loadQuestions() {
 
   // Easy mode was chosen

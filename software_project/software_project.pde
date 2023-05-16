@@ -11,7 +11,7 @@ PFont myFont;
 String answer, question;
 String[] splitQuestion;
 String[] options;
-String winState;
+String windowName;
 
 void setup() {
   size(800, 400);
@@ -27,11 +27,15 @@ void setup() {
 
 void draw() {
   background(254, 221, 216);
-  if (winState == "start") {
+  
+  if (windowName == "start") {
     fill(0);
     textSize(50);
-    text("Tester", width/2-100, 100);
-  } else if (winState == "Main") {
+    textAlign(CENTER);
+    text("Welcome to \n Brainlet", width/2, 100);
+  } 
+  
+  else if (windowName == "Main") {
  //<>//
     // Formatting //<>//
     textSize(20);
