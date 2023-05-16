@@ -4,7 +4,6 @@ Questions geoEasy, geoMedium, geoHard, geoQ;
 
 int lvl;
 int answerSize = 20;
-boolean nextQuestionClicked;
 PFont myFont;
 
 
@@ -16,6 +15,7 @@ String windowName;
 void setup() {
   size(800, 400);
   background(255);
+  
   createGUI();
   displayStart();
 
