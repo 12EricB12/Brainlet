@@ -61,7 +61,7 @@ void showText() {
   //textFont(myFont);
 
   text("Question:", 40, 90);
-  text("Possible Options:", 40, 250);
+  text("Possible Answers:", 40, 250);
 }
 
 void nextQuestion() {
