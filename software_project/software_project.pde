@@ -10,7 +10,7 @@ PFont myFont;
 
 
 String answer, question;
-String mode = "Test"; // Possible options: Test, Endless
+String mode = "Random"; // Possible options: Test, Endless
 
 String[] splitQuestion;
 String[] options;
@@ -21,7 +21,7 @@ String subSelected;
 
 int current = 0;
 
-int aggressiveness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
+int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
 int answerLocation = 0;
 int correct = 0;
 
@@ -30,8 +30,7 @@ void setup() {
   background(255);
 
   createGUI();
-  displayMainMenu();
-   //<>// //<>//
+  displayMainMenu(); //<>//
 }
 
 void draw() {
@@ -39,8 +38,5 @@ void draw() {
   
   // Display the other screens
   displayScreen();
-
-  //<>// //<>//
-  
-   //<>// //<>// //<>//
+ //<>// //<>//
 }

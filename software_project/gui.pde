@@ -71,6 +71,17 @@ public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
 } //_CODE_:answer4:556391:
 
 public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
+  answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  
+  current = 0;
+  pastQuestions.clear();
+  //questionSet.nextQuestion(current, pastQuestions);
+  nextQuestion();
+  
+  redraw();
 } //_CODE_:reset:241784:
 
 

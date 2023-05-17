@@ -114,7 +114,7 @@ void nextQuestion() {
   } 
   
   else if (mode == "Endless") {
-    pastQuestions = rotateArrayList(pastQuestions, question, aggressiveness);
+    pastQuestions = rotateArrayList(pastQuestions, question, randomness);
   }
 
   pastQuestions.add(question);
@@ -157,12 +157,12 @@ void checkAnswer() {
   current++;
 }
 
-ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int agressive) {
+ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int randomLvl) {
   ArrayList<String> newArrayLst = arrayLst;
   String pastValue;
   
   // If the arrayList is not big enough to be rotated yet, the current question will simply be added.
-  if (arrayLst.size() < agressive) {
+  if (arrayLst.size() < randomLvl) {
     newArrayLst.add(currentQ); 
   } 
   

@@ -28,43 +28,63 @@ class Questions {
   }
   
   
-  String nextQuestion(int pointer, ArrayList<String> selection) {
+  String nextQuestion(int questionNum, ArrayList<String> selection) {
     
-    // Note: This function will randomly shuffle through the selection. A non-shuffle approach can be added later if we have time.
-    if (this.mode.equals("Test")) { // For top to bottom
+    // The user chose the "test" mode
+    if (this.mode.equals("Test")) { 
       String question;
-      this.fullLine = this.fileName[pointer]; // Loads one line from the full file
+      
+      // Loads and seperates the relevant question from the full file
+      this.fullLine = this.fileName[questionNum]; 
       this.optionsSplit = this.fullLine.split("#");
       
-      if (pointer == (this.fileName.length)-1) {
+      // The last question was reached
+      if (questionNum == (this.fileName.length)-1) {
         return "finished";
       } 
+      
+      // There are still unasked questions
       else {
         question = this.optionsSplit[0];
       }
       
       return question;
     }
-    else if (this.mode.equals("Random")) { // Randomly selects an element
-      this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; // Loads one line from the full file
+    
+    // Random mode was chosen
+    else if (this.mode.equals("Random")) { 
+      
+      // Loads and seperates a random question from the full file
+      this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; 
       this.optionsSplit = this.fullLine.split("#");
       
       String question = this.optionsSplit[0];
-      this.fileName = deleteElemInArray(this.fileName, this.fullLine); // Deletes the element that was randomly selected to prevent it from being reselected
       
+      // Deletes the element that was randomly selected to prevent it from being reselected
+      this.fileName = deleteElemInArray(this.fileName, this.fullLine); 
+      
+      // If all elements have been cycled through, display the end screen
       if (this.fileName.length == 0) {
-        return "finished"; // If all elements have been cycled through, show the end screen
+        return "finished"; 
       }
+      
+      // Otherwise, display the question
       else {
-        return question; // Otherwise, show the question
+        return question; 
       }
     }
-    else { // Endless
-      this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Loads one line from the full file
+    
+    // User chose the endless mode
+    else { 
+      
+      // Loads a question from the full file
+      this.fullLine = this.fileName[round( random( this.fileName.length-1 ))];
       
       for (int i = 0; i < selection.size(); i++) {
+        
         while (this.fullLine.contains(selection.get(i))) {
-          this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Try again if already present in the list of previous responses
+          // Try again if already present in the list of previous responses
+          this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; 
         }
       }
       
