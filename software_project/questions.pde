@@ -31,7 +31,7 @@ class Questions {
   String nextQuestion(int pointer, ArrayList<String> selection) {
     
     // Note: This function will randomly shuffle through the selection. A non-shuffle approach can be added later if we have time.
-    if (this.mode.equals("TtB")) { // For top to bottom
+    if (this.mode.equals("Test")) { // For top to bottom
       String question;
       this.fullLine = this.fileName[pointer]; // Loads one line from the full file
       this.optionsSplit = this.fullLine.split("#");

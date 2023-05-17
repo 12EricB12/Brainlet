@@ -10,7 +10,8 @@ PFont myFont;
 
 
 String answer, question;
-String mode = "Endless";
+String mode = "Test";
+
 String[] splitQuestion;
 String[] options;
 ArrayList<String> optionsArray = new ArrayList<String>();
@@ -18,7 +19,7 @@ ArrayList<String> pastQuestions = new ArrayList<String>();
 String windowName;
 
 int current = 0;
-int agressiveness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
+int aggressiveness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
 
 void setup() {
   size(800, 400);
