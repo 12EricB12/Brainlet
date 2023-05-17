@@ -15,7 +15,7 @@
  */
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724:
-  windowName = "Main";
+  windowName = "begin";
   window1.setVisible(true);
   start.setVisible(false);
   subjectSelection.setVisible(false);

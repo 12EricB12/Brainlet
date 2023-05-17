@@ -1,8 +1,8 @@
 import g4p_controls.*;   //<>//
 
-Questions geoEasy, geoMedium, geoHard, geoQ;
+Questions easyQ, moderateQ, hardQ, questionSet;
 
-String[] geoEasyQ, geoMediumQ, geoHardQ;
+String[] easyFile, moderateFile, hardFile; //easy questions, medium questions, hard questions
 
 int lvl;
 int answerSize = 20;
@@ -30,32 +30,17 @@ void setup() {
   background(255);
 
   createGUI();
-  initialScreen(); //<>// //<>//
+  displayMainMenu();
+   //<>// //<>//
 }
 
 void draw() {
   background(254, 221, 216);
+  
+  // Display the other screens
   displayScreen();
 
-  if (windowName == "start") {
-    fill(0); //<>//
-    textSize(50); //<>//
-    textAlign(CENTER);
-
-    text("Welcome to \n Brainlet", width/2, 100);
-  } 
+  //<>// //<>//
   
-  else if (windowName == "Main") {
-    // Formatting 
-    println(subSelected);
-    subjectSelected(); //<>//
-
-  }  //<>//
-  
-  else if (windowName == "Main") {
-    // Formatting //<>//
-    textSize(20);
-    fill(0);
-   
-}
+   //<>// //<>// //<>//
 }

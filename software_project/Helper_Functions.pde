@@ -1,26 +1,29 @@
 import java.util.Collections;
 
 
-void initialScreen() {
+void displayMainMenu() {
   
   // Set the name of the window to "start"
   windowName = "start";
   window1.setVisible(false);
   
-  fill(0);
-  textSize(50);
-  textAlign(CENTER);
-  text("Welcome to \n Brainlet", width/2, 100);
-  
 }
 
 void displayScreen() {
-  if (windowName == "Main") {
+  
+  // Displays the title of the program
+  if (windowName == "start") {
+    fill(0);
+    textSize(50);
+    textAlign(CENTER);
+    text("Welcome to \n Brainlet", width/2, 100);
+  }
+  
+  // Start button was clicked
+  else if (windowName == "begin") {
    
     // Formatting
     textSize(20);
-    fill(0);
-
     textAlign(LEFT);
 
     loadQuestions();
@@ -29,7 +32,7 @@ void displayScreen() {
     noLoop();
   } 
   
-  else if (windowName == "End") {
+  else if (windowName == "end") {
     fill(0);
     textSize(50);
     text("You passed!", width/2-100, 100);
@@ -39,22 +42,24 @@ void displayScreen() {
 
 
 void subjectSelected() {
-
+  
+  // Geography was selected
   if (subSelected.equals( "Geography" )) {
-    geoEasyQ = loadStrings("Geography/Easy.txt");
-    geoMediumQ = loadStrings("Geography/Moderate.txt");
-    geoHardQ = loadStrings("Geography/Hard.txt");   
+    easyFile = loadStrings("Geography/Easy.txt");
+    moderateFile = loadStrings("Geography/Moderate.txt");
+    hardFile = loadStrings("Geography/Hard.txt");   
   } 
   
+  // Biology was selected
   else if (subSelected.equals( "Biology" )) {
-    geoEasyQ = loadStrings("Biology/Easy.txt");
-    geoMediumQ = loadStrings("Biology/Moderate.txt");
-    geoHardQ = loadStrings("Biology/Hard.txt");
+    easyFile = loadStrings("Biology/Easy.txt");
+    moderateFile = loadStrings("Biology/Moderate.txt");
+    hardFile = loadStrings("Biology/Hard.txt");
   }
   
-  geoEasy = new Questions(geoEasyQ, mode);
-  geoMedium = new Questions(geoMediumQ, mode);
-  geoHard = new Questions(geoHardQ, mode);
+  easyQ = new Questions(easyFile, mode);
+  moderateQ = new Questions(moderateFile, mode);
+  hardQ = new Questions(hardFile, mode);
 }
 
 
@@ -62,23 +67,23 @@ void loadQuestions() {
 
   // Easy mode was chosen
   if (lvl <= 1) { 
-    geoQ = geoEasy;
+    questionSet = easyQ;
   } 
 
   // Moderate mode was chosen
   else if (lvl == 2) {
-    geoQ = geoMedium;
+    questionSet = moderateQ;
   }
 
   // Hard mode was chosen
   else if (lvl == 3) {
-    geoQ = geoHard;
+    questionSet = hardQ;
   }
 
   // Gets the questions and answers from the text file
-  answer = geoQ.getAnswer(); 
-  question = geoQ.getQuestion(); 
-  options = geoQ.randomizeSelection(4); // Generates the options that the user can pick from
+  answer = questionSet.getAnswer(); 
+  question = questionSet.getQuestion(); 
+  options = questionSet.randomizeSelection(4); // Generates the options that the user can pick from
 
   splitQuestion = question.split("");
 }
@@ -131,13 +136,13 @@ void showText() {
 
 void nextQuestion() {
 
-  question = geoQ.nextQuestion(current, pastQuestions);
-  answer = geoQ.getAnswer();
-  options = geoQ.randomizeSelection(4);
+  question = questionSet.nextQuestion(current, pastQuestions);
+  answer = questionSet.getAnswer();
+  options = questionSet.randomizeSelection(4);
   splitQuestion = question.split("");
 
   if (question.equals( "finished")) {
-    windowName = "End";
+    windowName = "end";
   }
 
   if (mode.equals( "Test")) {
