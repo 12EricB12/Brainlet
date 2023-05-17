@@ -1,4 +1,5 @@
-import g4p_controls.*;   //<>//
+ //<>//
+import g4p_controls.*;   
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
@@ -17,10 +18,13 @@ String[] options;
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();
 String windowName;
-String subSelected;
+String subSelected = "Geography";
 
 int current = 0;
+
 int aggressiveness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
+int answerLocation = 0;
+int correct = 0;
 
 void setup() {
   size(800, 400);
@@ -53,8 +57,8 @@ void draw() {
 
 
   if (windowName == "start") {
-    fill(0);
-    textSize(50);
+    fill(0); //<>//
+    textSize(50); //<>//
     textAlign(CENTER);
     text("Welcome to \n Brainlet", width/2, 100);
   } else if (windowName == "Main") { //<>//
@@ -62,8 +66,6 @@ void draw() {
     println(subSelected);
     txtLoad();
     textSize(20);
-    fill(0);
-    
-
-
-} //<>// //<>//
+    fill(0); //<>//
+   
+} 
