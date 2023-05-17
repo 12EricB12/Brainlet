@@ -76,7 +76,7 @@ void nextQuestion() {
   splitQuestion = question.split("");
   
   if (question == "finished") {
-    winState = "End";
+    windowName = "End";
   }
   
   if (mode == "TtB") {
