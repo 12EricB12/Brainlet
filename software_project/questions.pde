@@ -5,15 +5,13 @@ class Questions {
   String[] test;
   String[] optionsSplit;
   String[] fileName;
+  String mode;
   
-  Questions(String[] fileStrings) {
+  Questions(String[] fileStrings, String m) {
     this.fullLine = fileStrings[round( random( fileStrings.length-1 ))]; // Loads one line from the full file
     this.fileName = fileStrings;
     this.optionsSplit = this.fullLine.split("#");
-  }
-  
-  void randomizeNext() {
-    this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Refreshes the question and forces it to move on
+    this.mode = m;
   }
   
   String getAnswer() {
@@ -30,14 +28,51 @@ class Questions {
   }
   
   
-  String nextQuestion() {
+  String nextQuestion(int pointer, ArrayList<String> selection) {
     
     // Note: This function will randomly shuffle through the selection. A non-shuffle approach can be added later if we have time.
-    //this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Loads one line from the full file
-    this.optionsSplit = this.fullLine.split("#");
-    
-    String question = this.optionsSplit[0];
-    return question;
+    if (this.mode.equals("TtB")) { // For top to bottom
+      String question;
+      this.fullLine = this.fileName[pointer]; // Loads one line from the full file
+      this.optionsSplit = this.fullLine.split("#");
+      
+      if (pointer == (this.fileName.length)-1) {
+        return "finished";
+      } 
+      else {
+        question = this.optionsSplit[0];
+      }
+      
+      return question;
+    }
+    else if (this.mode.equals("Random")) { // Randomly selects an element
+      this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; // Loads one line from the full file
+      this.optionsSplit = this.fullLine.split("#");
+      
+      String question = this.optionsSplit[0];
+      this.fileName = deleteElemInArray(this.fileName, this.fullLine); // Deletes the element that was randomly selected to prevent it from being reselected
+      
+      if (this.fileName.length == 0) {
+        return "finished"; // If all elements have been cycled through, show the end screen
+      }
+      else {
+        return question; // Otherwise, show the question
+      }
+    }
+    else { // Endless
+      this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Loads one line from the full file
+      
+      for (int i = 0; i < selection.size(); i++) {
+        while (this.fullLine.contains(selection.get(i))) {
+          this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; // Try again if already present in the list of previous responses
+        }
+      }
+      
+      this.optionsSplit = this.fullLine.split("#");
+      
+      String question = this.optionsSplit[0];
+      return question;
+    }
   }
   
   

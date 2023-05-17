@@ -19,7 +19,7 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
   winState = "Main";
   window1.setVisible(true);
   start.setVisible(false);
-  sublist.setVisible(false);
+  sublist.setVisible(false); //<>//
 } //_CODE_:start:274724:
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:sublist:215520:
@@ -36,7 +36,7 @@ public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:4
   redraw();
 } //_CODE_:diffLevel:484514:
 
-public void snswer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
+public void answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
   println("button1 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:answer2:654967:
 
@@ -51,8 +51,11 @@ public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-
-
+  
+  // There are three modes: Endless (Questions never end), Top to Bottom (Aka TtB, goes through the question set in a numerical order), or shuffle (goes through the entire question set randomly)
+  if (mode == "TtB") {
+    
+  }
   nextQuestion();
   showText();
   redraw();

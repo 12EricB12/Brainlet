@@ -2,6 +2,8 @@ import g4p_controls.*; //<>//
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
+String[] geoEasyQ, geoMediumQ, geoHardQ;
+
 int lvl;
 int answerSize = 20;
 boolean nextQuestionClicked;
@@ -9,20 +11,30 @@ PFont myFont;
 
 
 String answer, question;
+String mode = "Endless";
 String[] splitQuestion;
 String[] options;
+ArrayList<String> optionsArray = new ArrayList<String>();
+ArrayList<String> pastQuestions = new ArrayList<String>();
 String winState;
+
+int current = 0;
+int agressiveness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
 
 void setup() {
   size(800, 400);
   background(255);
   createGUI();
   displayStart();
+  
+  geoEasyQ = loadStrings("Geography/Easy.txt");
+  geoMediumQ = loadStrings("Geography/Moderate.txt");
+  geoHardQ = loadStrings("Geography/Hard.txt");
 
   // Load the text documents
-  geoEasy = new Questions(loadStrings("Geography/Easy.txt"));
-  geoMedium = new Questions(loadStrings("Geography/Moderate.txt"));
-  geoHard = new Questions(loadStrings("Geography/Hard.txt"));
+  geoEasy = new Questions(geoEasyQ,  mode);
+  geoMedium = new Questions(geoMediumQ, mode);
+  geoHard = new Questions(geoHardQ, mode);
 }
 
 void draw() {
@@ -32,8 +44,8 @@ void draw() {
     textSize(50);
     text("Tester", width/2-100, 100);
   } else if (winState == "Main") {
- //<>//
-    // Formatting //<>//
+
+    // Formatting
     textSize(20);
     fill(0);
 
@@ -43,5 +55,10 @@ void draw() {
     showText();
 
     noLoop();
+  }
+  else if (winState == "End") {
+    fill(0);
+    textSize(50);
+    text("You passed!", width/2-100, 100);
   }
 }

@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 void displayStart() {
   winState = "start";
   window1.setVisible(false);
@@ -66,10 +68,55 @@ void showText() {
 
 void nextQuestion() {
 
-  geoQ.randomizeNext();
-
-  question = geoQ.nextQuestion();
+  question = geoQ.nextQuestion(current, pastQuestions);
   answer = geoQ.getAnswer();
   options = geoQ.randomizeSelection(4);
   splitQuestion = question.split("");
+  
+  if (question == "finished") {
+    winState = "End";
+  }
+  
+  if (mode == "TtB") {
+    current++;
+  }
+  else if (mode == "Endless") {
+    pastQuestions = rotateArrayList(pastQuestions, question, agressiveness);
+  }
+  
+  pastQuestions.add(question);
+}
+
+ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int agressive) {
+  ArrayList<String> newArrayLst = arrayLst;
+  String pastValue;
+  if (arrayLst.size() < agressive) {
+      newArrayLst.add(currentQ); // If the arrayList is not big enough to be rotated yet, the current question will simply be added.
+  }
+  else {
+    for (int i = 0; i < arrayLst.size()-1; i++) {
+      if (i == 0) {
+        pastValue = arrayLst.get(i);
+        newArrayLst.set(i, currentQ);
+      }
+      else {
+        pastValue = arrayLst.get(i);
+        newArrayLst.set(i, pastValue);
+      }
+    }
+  }
+  return newArrayLst;
+}
+
+String[] deleteElemInArray(String[] pastArray, String elem) {
+  ArrayList<String> newArray = new ArrayList<String>();
+  
+  for (int i = 0; i < pastArray.length; i++) {
+    if (!pastArray[i].equals(elem)) {
+      newArray.add(pastArray[i]);
+    } 
+  }
+  
+  String[] newArr = newArray.toArray(new String[newArray.size()]);
+  return newArr;
 }
