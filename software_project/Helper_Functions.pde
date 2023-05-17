@@ -58,17 +58,24 @@ void showText() {
 
   // Font size for the answer
   textSize(answerSize); 
-  text("1. " + answer, 40, yVal - answerSize);
-
-  // Outputs the remaining options
+  
+  optionsArray.add(answer);
   for (int i = 0; i < options.length; i++) {
+    optionsArray.add(options[i]);
+  }
+  
+  Collections.shuffle(optionsArray);
+  answerLocation = optionsArray.indexOf(answer);
+  
+  // Outputs the remaining options
+  for (int i = 0; i < optionsArray.size(); i++) {
 
     //  Font size and line spacing
     textSize(answerSize); 
     textLeading(10);
 
     // Creates the remaining options
-    text(String.valueOf(i + 2) + ". " + options[i], 40, yVal);
+    text(String.valueOf(i + 1) + ". " + optionsArray.get(i), 40, yVal);
 
     // Sets the new text y-value
     yVal += answerSize;
@@ -78,6 +85,8 @@ void showText() {
   // Create a new font for the labels
   //myFont = createFont("Arial Bold", 20);
   //textFont(myFont);
+  
+  optionsArray.clear();
 
   text("Question:", 40, 90);
   text("Possible Answers:", 40, 250);
