@@ -2,7 +2,7 @@ import g4p_controls.*;   //<>//
 
 Questions easyQ, moderateQ, hardQ, questionSet;
 
-String[] easyFile, moderateFile, hardFile; //easy questions, medium questions, hard questions
+String[] easyFile, moderateFile, hardFile; 
 
 int lvl;
 int answerSize = 20;
@@ -10,7 +10,7 @@ PFont myFont;
 
 
 String answer, question;
-String mode = "Test";
+String mode = "Test"; // Possible options: Test, Endless
 
 String[] splitQuestion;
 String[] options;

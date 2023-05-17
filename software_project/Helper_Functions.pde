@@ -1,46 +1,6 @@
 import java.util.Collections;
 
 
-void displayMainMenu() {
-  
-  // Set the name of the window to "start"
-  windowName = "start";
-  window1.setVisible(false);
-  
-}
-
-void displayScreen() {
-  
-  // Displays the title of the program
-  if (windowName == "start") {
-    fill(0);
-    textSize(50);
-    textAlign(CENTER);
-    text("Welcome to \n Brainlet", width/2, 100);
-  }
-  
-  // Start button was clicked
-  else if (windowName == "begin") {
-   
-    // Formatting
-    textSize(20);
-    textAlign(LEFT);
-
-    loadQuestions();
-    showText();
-
-    noLoop();
-  } 
-  
-  else if (windowName == "end") {
-    fill(0);
-    textSize(50);
-    text("You passed!", width/2-100, 100);
-  }
-  
-}
-
-
 void subjectSelected() {
   
   // Geography was selected
@@ -98,23 +58,26 @@ void showText() {
   question = String.join("", splitQuestion);
   text(question, 40, 100, 700, 700);
 
-  // Font size for the answer
+  // FOR THE ANSWER
   textSize(answerSize); 
   
+  // Add the answer to the array
   optionsArray.add(answer);
+  
   for (int i = 0; i < options.length; i++) {
+    
+    // Add the remaining options to the array
     optionsArray.add(options[i]);
   }
   
+  // Shuffles the options, and locates the correct answer
   Collections.shuffle(optionsArray);
   answerLocation = optionsArray.indexOf(answer);
   
   // Outputs the remaining options
   for (int i = 0; i < optionsArray.size(); i++) {
-
-    //  Font size and line spacing
+    
     textSize(answerSize); 
-    textLeading(10);
 
     // Creates the remaining options
     text(String.valueOf(i + 1) + ". " + optionsArray.get(i), 40, yVal);
@@ -123,13 +86,14 @@ void showText() {
     yVal += answerSize;
   }
 
-
   // Create a new font for the labels
   //myFont = createFont("Arial Bold", 20);
   //textFont(myFont);
   
+  // Empty the array
   optionsArray.clear();
 
+  // Labels
   text("Question:", 40, 90);
   text("Possible Answers:", 40, 250);
 }
@@ -147,26 +111,70 @@ void nextQuestion() {
 
   if (mode.equals( "Test")) {
     current++;
-  } else if (mode == "Endless") {
+  } 
+  
+  else if (mode == "Endless") {
     pastQuestions = rotateArrayList(pastQuestions, question, aggressiveness);
   }
 
   pastQuestions.add(question);
 }
 
+void checkAnswer() {
+  
+  // The first answer was correct
+  if (answerLocation == 0) {
+    answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+  }
+  
+  // Answer was the second option
+  if (answerLocation == 1){
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+  }
+  
+  // Answer was the third option
+  if (answerLocation == 2) {
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+ }
+ 
+  // Answer was the fourth option
+  if (answerLocation == 3) {
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  }
+  
+  current++;
+}
+
 ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int agressive) {
   ArrayList<String> newArrayLst = arrayLst;
   String pastValue;
+  
+  // If the arrayList is not big enough to be rotated yet, the current question will simply be added.
   if (arrayLst.size() < agressive) {
-    newArrayLst.add(currentQ); // If the arrayList is not big enough to be rotated yet, the current question will simply be added.
+    newArrayLst.add(currentQ); 
   } 
   
   else {
     for (int i = 0; i < arrayLst.size()-1; i++) {
+      
       if (i == 0) {
         pastValue = arrayLst.get(i);
         newArrayLst.set(i, currentQ);
-      } else {
+      } 
+      
+      else {
         pastValue = arrayLst.get(i);
         newArrayLst.set(i, pastValue);
       }
