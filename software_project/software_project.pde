@@ -1,4 +1,4 @@
-import g4p_controls.*;  //<>// //<>//
+import g4p_controls.*;  //<>// //<>// //<>//
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
@@ -33,9 +33,9 @@ void setup() {
     geoMediumQ = loadStrings("Geography/Moderate.txt");
     geoHardQ = loadStrings("Geography/Hard.txt");
   } else if (subSelected == "Biology") {
-    geoEasyQ = loadStrings("Geography/Easy.txt");
-    geoMediumQ = loadStrings("Geography/Moderate.txt");
-    geoHardQ = loadStrings("Geography/Hard.txt");
+    geoEasyQ = loadStrings("Biology/Easy.txt");
+    geoMediumQ = loadStrings("Biology/Moderate.txt");
+    geoHardQ = loadStrings("Biology/Hard.txt");
   }
   // Load the text documents
   geoEasy = new Questions(geoEasyQ, mode);
