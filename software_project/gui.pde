@@ -24,6 +24,8 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   println("subjectSelection - GDropList >> GEvent." + event + " @ " + millis());
   subSelected = subjectSelection.getSelectedText();
+  println(subSelected);
+  //print(subjectSelection.getSelectedText());
 } //_CODE_:subjectSelection:215520:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:454168:
@@ -113,7 +115,7 @@ public void createGUI(){
   start.setText("Start");
   start.addEventHandler(this, "button1_click1");
   subjectSelection = new GDropList(this, 353, 274, 90, 60, 2, 10);
-  subjectSelection.setItems(loadStrings("list_215520"), 1);
+  subjectSelection.setItems(loadStrings("list_215520"), 0);
   subjectSelection.addEventHandler(this, "dropList1_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);
   window1.noLoop();
