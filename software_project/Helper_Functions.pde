@@ -75,15 +75,15 @@ void nextQuestion() {
   options = geoQ.randomizeSelection(4);
   splitQuestion = question.split("");
   
-  if (question == "finished") {
+  if (question.equals( "finished")) {
     windowName = "End";
   }
   
-  if (mode == "TtB") {
+  if (mode.equals( "Test")) {
     current++;
   }
   else if (mode == "Endless") {
-    pastQuestions = rotateArrayList(pastQuestions, question, agressiveness);
+    pastQuestions = rotateArrayList(pastQuestions, question, aggressiveness);
   }
   
   pastQuestions.add(question);
