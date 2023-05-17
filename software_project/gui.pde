@@ -22,9 +22,8 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
 } //_CODE_:start:274724:
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
-  println("subjectSelection - GDropList >> GEvent." + event + " @ " + millis());
   subSelected = subjectSelection.getSelectedText();
-  println(subSelected);
+  txtLoad();
   //print(subjectSelection.getSelectedText());
 } //_CODE_:subjectSelection:215520:
 
@@ -34,12 +33,10 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
   lvl = diffLevel.getValueI();
-  println(lvl);
   redraw();
 } //_CODE_:diffLevel:484514:
 
 public void snswer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
-  println("button1 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:answer2:654967:
 
 public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
@@ -50,7 +47,6 @@ public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
 } //_CODE_:answer1:929402:
 
 public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
-  println("button3 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:answer3:262656:
 
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
@@ -67,15 +63,12 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
 } //_CODE_:nextQuestion:276653:
 
 public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
-  println("numTries - GSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:numTries:752762:
 
 public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
-  println("answer4 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:answer4:556391:
 
 public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
-  println("reset - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:reset:241784:
 
 
@@ -90,7 +83,7 @@ public void createGUI(){
   start = new GButton(this, 342, 208, 108, 51);
   start.setText("Start");
   start.addEventHandler(this, "button1_click1");
-  subjectSelection = new GDropList(this, 353, 274, 90, 60, 2, 10);
+  subjectSelection = new GDropList(this, 332, 275, 128, 93, 2, 10);
   subjectSelection.setItems(loadStrings("list_215520"), 0);
   subjectSelection.addEventHandler(this, "dropList1_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);

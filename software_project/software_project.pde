@@ -33,7 +33,6 @@ void setup() {
 
 void draw() {
   background(254, 221, 216);
-
   if (windowName == "start") {
     fill(0);
     textSize(50);
@@ -41,8 +40,6 @@ void draw() {
     text("Welcome to \n Brainlet", width/2, 100);
   } else if (windowName == "Main") { //<>//
     // Formatting //<>//
-    println(subSelected);
-    txtLoad();
     textSize(20);
     fill(0);
 
