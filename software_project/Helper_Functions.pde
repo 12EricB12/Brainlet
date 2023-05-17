@@ -11,6 +11,7 @@ void initialScreen() {
   textSize(50);
   textAlign(CENTER);
   text("Welcome to \n Brainlet", width/2, 100);
+  
 }
 
 void displayScreen() {
@@ -38,7 +39,7 @@ void displayScreen() {
 
 
 void subjectSelected() {
- 
+
   if (subSelected.equals( "Geography" )) {
     geoEasyQ = loadStrings("Geography/Easy.txt");
     geoMediumQ = loadStrings("Geography/Moderate.txt");
@@ -49,34 +50,13 @@ void subjectSelected() {
     geoEasyQ = loadStrings("Biology/Easy.txt");
     geoMediumQ = loadStrings("Biology/Moderate.txt");
     geoHardQ = loadStrings("Biology/Hard.txt");
-
   }
-
-void txtLoad() {
   
-  if (subSelected.equals( "Geography")) {
-    geoEasyQ = loadStrings("Geography/Easy.txt");
-    geoMediumQ = loadStrings("Geography/Moderate.txt");
-    geoHardQ = loadStrings("Geography/Hard.txt");
-  } 
-  
-  else if (subSelected.equals("Biology")) {
-    geoEasyQ = loadStrings("Biology/Easy.txt");
-    geoMediumQ = loadStrings("Biology/Moderate.txt");
-    geoHardQ = loadStrings("Biology/Hard.txt");
-  }
   geoEasy = new Questions(geoEasyQ, mode);
   geoMedium = new Questions(geoMediumQ, mode);
   geoHard = new Questions(geoHardQ, mode);
 }
 
-void displayStart() {
-
-  windowName = "start";
-  window1.setVisible(false);
-  subjectSelected();
-  
-}
 
 void loadQuestions() {
 
@@ -96,7 +76,7 @@ void loadQuestions() {
   }
 
   // Gets the questions and answers from the text file
-  answer = geoQ.getAnswer(); // Generates the answer to the problem, always the first option (answer shuffle will be added later)
+  answer = geoQ.getAnswer(); 
   question = geoQ.getQuestion(); 
   options = geoQ.randomizeSelection(4); // Generates the options that the user can pick from
 

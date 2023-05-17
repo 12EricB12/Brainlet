@@ -30,23 +30,7 @@ void setup() {
   background(255);
 
   createGUI();
-
-  initialScreen();
-  
-  if (subSelected == "Geography") {
-    geoEasyQ = loadStrings("Geography/Easy.txt");
-    geoMediumQ = loadStrings("Geography/Moderate.txt");
-    geoHardQ = loadStrings("Geography/Hard.txt");
-  } 
-  
-  else if (subSelected == "Biology") {
-    geoEasyQ = loadStrings("Biology/Easy.txt"); //<>//
-    geoMediumQ = loadStrings("Biology/Moderate.txt"); //<>//
-    geoHardQ = loadStrings("Biology/Hard.txt");
-  }
-
-
-  displayStart();
+  initialScreen(); //<>// //<>//
 }
 
 void draw() {

@@ -24,9 +24,7 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   subSelected = subjectSelection.getSelectedText();
   subjectSelected();
-
-  subSelected = subjectSelection.getSelectedText();
-  txtLoad();
+  
   
   //print(subjectSelection.getSelectedText());
 } //_CODE_:subjectSelection:215520:
@@ -143,7 +141,7 @@ public void createGUI(){
   label3.setOpaque(false);
   answer2 = new GButton(window1, 174, 169, 80, 30);
   answer2.setText("Answer 2");
-  answer2.addEventHandler(this, "snswer2");
+  answer2.addEventHandler(this, "Answer2");
   answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "Answer1");
