@@ -1,4 +1,4 @@
-import g4p_controls.*;  //<>// //<>// //<>// //<>// //<>//
+import g4p_controls.*;  //<>// //<>// //<>// //<>// //<>// //<>//
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
@@ -30,31 +30,37 @@ void setup() {
   background(255);
 
   createGUI();
+
+  initialScreen();
+  
+  if (subSelected == "Geography") {
+    geoEasyQ = loadStrings("Geography/Easy.txt");
+    geoMediumQ = loadStrings("Geography/Moderate.txt");
+    geoHardQ = loadStrings("Geography/Hard.txt");
+  } else if (subSelected == "Biology") {
+    geoEasyQ = loadStrings("Biology/Easy.txt"); //<>//
+    geoMediumQ = loadStrings("Biology/Moderate.txt"); //<>//
+    geoHardQ = loadStrings("Biology/Hard.txt");
+  }
+
+
   displayStart();
   // Load the text documents
 }
 
 void draw() {
   background(254, 221, 216);
+  displayScreen();
+
   if (windowName == "start") {
-    fill(0);
+    fill(0); //<>//
     textSize(50); //<>//
-    textAlign(CENTER); //<>//
+    textAlign(CENTER);
+
     text("Welcome to \n Brainlet", width/2, 100);
   } else if (windowName == "Main") { //<>//
     // Formatting //<>//
     textSize(20);
-    fill(0);
-
-    textAlign(LEFT);
-
-    loadQuestions();
-    showText();
-
-    noLoop();
-  } else if (windowName == "End") {
-    fill(0);
-    textSize(50);
-    text("You passed!", width/2-100, 100);
-  }
-}
+    fill(0); //<>//
+   
+} 

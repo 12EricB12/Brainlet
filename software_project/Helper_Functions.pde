@@ -1,5 +1,39 @@
 import java.util.Collections;
 
+
+void initialScreen() {
+  
+  // Set the name of the window to "start"
+  windowName = "start";
+  window1.setVisible(false);
+  
+  fill(0);
+  textSize(50);
+  textAlign(CENTER);
+  text("Welcome to \n Brainlet", width/2, 100);
+}
+
+void displayScreen() {
+  if (windowName == "Main") {
+   
+    // Formatting
+    textSize(20);
+    fill(0);
+
+    textAlign(LEFT);
+
+    loadQuestions();
+    showText();
+
+    noLoop();
+  } 
+  
+  else if (windowName == "End") {
+    fill(0);
+    textSize(50);
+    text("You passed!", width/2-100, 100);
+  }
+
 void txtLoad() {
   if (subSelected.equals( "Geography")) {
     geoEasyQ = loadStrings("Geography/Easy.txt");
@@ -19,6 +53,8 @@ void displayStart() {
 
   windowName = "start";
   window1.setVisible(false);
+  txtLoad();
+  
 }
 
 void loadQuestions() {
