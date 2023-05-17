@@ -33,33 +33,34 @@ void displayScreen() {
     textSize(50);
     text("You passed!", width/2-100, 100);
   }
+  
+}
 
-void txtLoad() {
-  geoEasyQ = loadStrings("Geography/Easy.txt");
-  geoMediumQ = loadStrings("Geography/Moderate.txt");
-  geoHardQ = loadStrings("Geography/Hard.txt");
+void subjectSelected() {
+ 
+  if (subSelected.equals( "Geography" )) {
+    geoEasyQ = loadStrings("Geography/Easy.txt");
+    geoMediumQ = loadStrings("Geography/Moderate.txt");
+    geoHardQ = loadStrings("Geography/Hard.txt");   
+  } 
+  
+  else if (subSelected.equals( "Biology" )) {
+    geoEasyQ = loadStrings("Biology/Easy.txt");
+    geoMediumQ = loadStrings("Biology/Moderate.txt");
+    geoHardQ = loadStrings("Biology/Hard.txt");
+
+  }
+  
   geoEasy = new Questions(geoEasyQ, mode);
   geoMedium = new Questions(geoMediumQ, mode);
   geoHard = new Questions(geoHardQ, mode);
-  println(subSelected);
-  if (subSelected == "Geography") {
-    println("geo");
-  } else if (subSelected == "Biology") {
-    print("Bio");
-    //geoEasyQ = loadStrings("Biology/Easy.txt");
-    //geoMediumQ = loadStrings("Biology/Moderate.txt");
-    ////geoHardQ = loadStrings("Biology/Hard.txt");
-    //geoEasy = new Questions(geoEasyQ, mode);
-    //geoMedium = new Questions(geoMediumQ, mode);
-    //geoHard = new Questions(geoHardQ, mode);
-  }
 }
 
 void displayStart() {
 
   windowName = "start";
   window1.setVisible(false);
-  txtLoad();
+  subjectSelected();
   
 }
 
@@ -159,7 +160,9 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
   String pastValue;
   if (arrayLst.size() < agressive) {
     newArrayLst.add(currentQ); // If the arrayList is not big enough to be rotated yet, the current question will simply be added.
-  } else {
+  } 
+  
+  else {
     for (int i = 0; i < arrayLst.size()-1; i++) {
       if (i == 0) {
         pastValue = arrayLst.get(i);
@@ -171,6 +174,7 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
     }
   }
   return newArrayLst;
+  
 }
 
 String[] deleteElemInArray(String[] pastArray, String elem) {

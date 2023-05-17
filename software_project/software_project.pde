@@ -61,11 +61,14 @@ void draw() {
     textSize(50); //<>//
     textAlign(CENTER);
     text("Welcome to \n Brainlet", width/2, 100);
-  } else if (windowName == "Main") { //<>//
-    // Formatting //<>//
+  } 
+  
+  else if (windowName == "Main") {
+    // Formatting 
     println(subSelected);
-    txtLoad();
+    subjectSelected(); //<>//
     textSize(20);
-    fill(0); //<>//
+    fill(0);
    
-} 
+}
+}

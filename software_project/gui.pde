@@ -1,4 +1,4 @@
-/* ========================================================= //<>// //<>//
+/* ========================================================= //<>// //<>// //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -22,9 +22,10 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
 } //_CODE_:start:274724: //<>//
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
-  println("subjectSelection - GDropList >> GEvent." + event + " @ " + millis());
+
   subSelected = subjectSelection.getSelectedText();
-  println(subSelected);
+  subjectSelected();
+  //println(subSelected);
   //print(subjectSelection.getSelectedText());
 } //_CODE_:subjectSelection:215520:
 
@@ -34,7 +35,6 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
   lvl = diffLevel.getValueI();
-  println(lvl);
   redraw();
 } //_CODE_:diffLevel:484514:
 
