@@ -1,4 +1,4 @@
-import g4p_controls.*; //<>//
+import g4p_controls.*; //<>// //<>//
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
@@ -6,7 +6,6 @@ String[] geoEasyQ, geoMediumQ, geoHardQ;
 
 int lvl;
 int answerSize = 20;
-boolean nextQuestionClicked;
 PFont myFont;
 
 
@@ -24,6 +23,7 @@ int agressiveness = 4; // How "random" you want the questions to be. Be careful 
 void setup() {
   size(800, 400);
   background(255);
+  
   createGUI();
   displayStart();
   
@@ -39,13 +39,17 @@ void setup() {
 
 void draw() {
   background(254, 221, 216);
+  
   if (winState == "start") {
     fill(0);
     textSize(50);
-    text("Tester", width/2-100, 100);
-  } else if (winState == "Main") {
-
-    // Formatting
+    textAlign(CENTER);
+    text("Welcome to \n Brainlet", width/2, 100);
+  } 
+  
+  else if (winState == "Main") {
+ //<>//
+    // Formatting //<>//
     textSize(20);
     fill(0);
 
