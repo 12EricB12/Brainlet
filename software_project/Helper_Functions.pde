@@ -36,6 +36,7 @@ void displayScreen() {
   
 }
 
+
 void subjectSelected() {
  
   if (subSelected.equals( "Geography" )) {
@@ -50,7 +51,17 @@ void subjectSelected() {
     geoHardQ = loadStrings("Biology/Hard.txt");
 
   }
-  
+
+void txtLoad() {
+  if (subSelected.equals( "Geography")) {
+    geoEasyQ = loadStrings("Geography/Easy.txt");
+    geoMediumQ = loadStrings("Geography/Moderate.txt");
+    geoHardQ = loadStrings("Geography/Hard.txt");
+  } else if (subSelected.equals("Biology")) {
+    geoEasyQ = loadStrings("Biology/Easy.txt");
+    geoMediumQ = loadStrings("Biology/Moderate.txt");
+    geoHardQ = loadStrings("Biology/Hard.txt");
+  }
   geoEasy = new Questions(geoEasyQ, mode);
   geoMedium = new Questions(geoMediumQ, mode);
   geoHard = new Questions(geoHardQ, mode);

@@ -1,4 +1,4 @@
-/* ========================================================= //<>// //<>// //<>//
+/* =========================================================  //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -22,10 +22,12 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
 } //_CODE_:start:274724: //<>//
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
-
   subSelected = subjectSelection.getSelectedText();
   subjectSelected();
-  //println(subSelected);
+
+  subSelected = subjectSelection.getSelectedText();
+  txtLoad();
+  
   //print(subjectSelection.getSelectedText());
 } //_CODE_:subjectSelection:215520:
 
@@ -84,7 +86,6 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
 } //_CODE_:nextQuestion:276653:
 
 public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
-  println("numTries - GSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:numTries:752762:
 
 public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
@@ -99,7 +100,6 @@ public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
 } //_CODE_:answer4:556391:
 
 public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
-  println("reset - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:reset:241784:
 
 
@@ -114,7 +114,7 @@ public void createGUI(){
   start = new GButton(this, 342, 208, 108, 51);
   start.setText("Start");
   start.addEventHandler(this, "button1_click1");
-  subjectSelection = new GDropList(this, 353, 274, 90, 60, 2, 10);
+  subjectSelection = new GDropList(this, 332, 275, 128, 93, 2, 10);
   subjectSelection.setItems(loadStrings("list_215520"), 0);
   subjectSelection.addEventHandler(this, "dropList1_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);

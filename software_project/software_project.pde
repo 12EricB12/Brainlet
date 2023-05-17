@@ -1,5 +1,4 @@
- //<>//
-import g4p_controls.*;   
+import g4p_controls.*;   //<>//
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
@@ -18,7 +17,7 @@ String[] options;
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();
 String windowName;
-String subSelected = "Geography";
+String subSelected;
 
 int current = 0;
 
@@ -39,8 +38,8 @@ void setup() {
     geoMediumQ = loadStrings("Geography/Moderate.txt");
     geoHardQ = loadStrings("Geography/Hard.txt");
   } else if (subSelected == "Biology") {
-    geoEasyQ = loadStrings("Biology/Easy.txt");
-    geoMediumQ = loadStrings("Biology/Moderate.txt");
+    geoEasyQ = loadStrings("Biology/Easy.txt"); //<>//
+    geoMediumQ = loadStrings("Biology/Moderate.txt"); //<>//
     geoHardQ = loadStrings("Biology/Hard.txt");
   }
 
@@ -51,22 +50,24 @@ void setup() {
 
 void draw() {
   background(254, 221, 216);
-  
   displayScreen();
-  
-
 
   if (windowName == "start") {
     fill(0); //<>//
     textSize(50); //<>//
     textAlign(CENTER);
+
     text("Welcome to \n Brainlet", width/2, 100);
+
   } 
   
   else if (windowName == "Main") {
     // Formatting 
     println(subSelected);
     subjectSelected(); //<>//
+
+  } else if (windowName == "Main") { //<>//
+    // Formatting //<>//
     textSize(20);
     fill(0);
    
