@@ -2,7 +2,7 @@ import java.util.Collections;
 
 void displayStart() {
   
-  windowName = "start";
+  winState = "start";
   window1.setVisible(false);
 }
 
@@ -43,24 +43,17 @@ void showText() {
 
   // Font size for the answer
   textSize(answerSize); 
-  
-  optionsArray.add(answer);
-  for (int i = 0; i < options.length; i++) {
-    optionsArray.add(options[i]);
-  }
-  
-  Collections.shuffle(optionsArray);
-  answerLocation = optionsArray.indexOf(answer);
-  
+  text("1. " + answer, 40, yVal - answerSize);
+
   // Outputs the remaining options
-  for (int i = 0; i < optionsArray.size(); i++) {
+  for (int i = 0; i < options.length; i++) {
 
     //  Font size and line spacing
     textSize(answerSize); 
     textLeading(10);
 
     // Creates the remaining options
-    text(String.valueOf(i + 1) + ". " + optionsArray.get(i), 40, yVal);
+    text(String.valueOf(i + 2) + ". " + options[i], 40, yVal);
 
     // Sets the new text y-value
     yVal += answerSize;
@@ -70,8 +63,6 @@ void showText() {
   // Create a new font for the labels
   //myFont = createFont("Arial Bold", 20);
   //textFont(myFont);
-  
-  optionsArray.clear();
 
   text("Question:", 40, 90);
   text("Possible Answers:", 40, 250);
@@ -84,15 +75,15 @@ void nextQuestion() {
   options = geoQ.randomizeSelection(4);
   splitQuestion = question.split("");
   
-  if (question.equals( "finished")) {
-    windowName = "End";
+  if (question == "finished") {
+    winState = "End";
   }
   
-  if (mode.equals( "Test")) {
+  if (mode == "TtB") {
     current++;
   }
   else if (mode == "Endless") {
-    pastQuestions = rotateArrayList(pastQuestions, question, aggressiveness);
+    pastQuestions = rotateArrayList(pastQuestions, question, agressiveness);
   }
   
   pastQuestions.add(question);

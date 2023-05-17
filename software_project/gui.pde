@@ -23,6 +23,7 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   println("subjectSelection - GDropList >> GEvent." + event + " @ " + millis());
+  subSelected = subjectSelection.getSelectedText();
 } //_CODE_:subjectSelection:215520:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:454168:
@@ -42,9 +43,9 @@ public void Answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
     answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
     answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
     
-    correct++;
+    current++;
   }
-} //_CODE_:answer2:654967:
+}
 
 public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
   if (answerLocation == 0) {
@@ -112,7 +113,7 @@ public void createGUI(){
   start.setText("Start");
   start.addEventHandler(this, "button1_click1");
   subjectSelection = new GDropList(this, 353, 274, 90, 60, 2, 10);
-  subjectSelection.setItems(loadStrings("list_215520"), 0);
+  subjectSelection.setItems(loadStrings("list_215520"), 1);
   subjectSelection.addEventHandler(this, "dropList1_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);
   window1.noLoop();
@@ -140,7 +141,7 @@ public void createGUI(){
   label3.setOpaque(false);
   answer2 = new GButton(window1, 174, 169, 80, 30);
   answer2.setText("Answer 2");
-  answer2.addEventHandler(this, "Answer2");
+  answer2.addEventHandler(this, "snswer2");
   answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "Answer1");
