@@ -1,9 +1,31 @@
 import java.util.Collections;
 
+void txtLoad() {
+  geoEasyQ = loadStrings("Geography/Easy.txt");
+  geoMediumQ = loadStrings("Geography/Moderate.txt");
+  geoHardQ = loadStrings("Geography/Hard.txt");
+  geoEasy = new Questions(geoEasyQ, mode);
+  geoMedium = new Questions(geoMediumQ, mode);
+  geoHard = new Questions(geoHardQ, mode);
+  println(subSelected);
+  if (subSelected == "Geography") {
+    println("geo");
+  } else if (subSelected == "Biology") {
+    print("Bio");
+    //geoEasyQ = loadStrings("Biology/Easy.txt");
+    //geoMediumQ = loadStrings("Biology/Moderate.txt");
+    ////geoHardQ = loadStrings("Biology/Hard.txt");
+    //geoEasy = new Questions(geoEasyQ, mode);
+    //geoMedium = new Questions(geoMediumQ, mode);
+    //geoHard = new Questions(geoHardQ, mode);
+  }
+}
+
 void displayStart() {
-  
+
   windowName = "start";
   window1.setVisible(false);
+  txtLoad();
 }
 
 void loadQuestions() {
@@ -74,18 +96,17 @@ void nextQuestion() {
   answer = geoQ.getAnswer();
   options = geoQ.randomizeSelection(4);
   splitQuestion = question.split("");
-  
+
   if (question.equals( "finished")) {
     windowName = "End";
   }
-  
+
   if (mode.equals( "Test")) {
     current++;
-  }
-  else if (mode == "Endless") {
+  } else if (mode == "Endless") {
     pastQuestions = rotateArrayList(pastQuestions, question, aggressiveness);
   }
-  
+
   pastQuestions.add(question);
 }
 
@@ -93,15 +114,13 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
   ArrayList<String> newArrayLst = arrayLst;
   String pastValue;
   if (arrayLst.size() < agressive) {
-      newArrayLst.add(currentQ); // If the arrayList is not big enough to be rotated yet, the current question will simply be added.
-  }
-  else {
+    newArrayLst.add(currentQ); // If the arrayList is not big enough to be rotated yet, the current question will simply be added.
+  } else {
     for (int i = 0; i < arrayLst.size()-1; i++) {
       if (i == 0) {
         pastValue = arrayLst.get(i);
         newArrayLst.set(i, currentQ);
-      }
-      else {
+      } else {
         pastValue = arrayLst.get(i);
         newArrayLst.set(i, pastValue);
       }
@@ -112,13 +131,13 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
 
 String[] deleteElemInArray(String[] pastArray, String elem) {
   ArrayList<String> newArray = new ArrayList<String>();
-  
+
   for (int i = 0; i < pastArray.length; i++) {
     if (!pastArray[i].equals(elem)) {
       newArray.add(pastArray[i]);
-    } 
+    }
   }
-  
+
   String[] newArr = newArray.toArray(new String[newArray.size()]);
   return newArr;
 }
