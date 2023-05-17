@@ -1,4 +1,4 @@
-import g4p_controls.*;  //<>// //<>// //<>//
+import g4p_controls.*;   //<>//
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
@@ -27,7 +27,8 @@ void setup() {
   background(255);
 
   createGUI();
-  displayStart();
+  initialScreen();
+  
   if (subSelected == "Geography") {
     geoEasyQ = loadStrings("Geography/Easy.txt");
     geoMediumQ = loadStrings("Geography/Moderate.txt");
@@ -45,27 +46,10 @@ void setup() {
 
 void draw() {
   background(254, 221, 216);
+  
+  displayScreen();
+  
 
-  if (windowName == "start") {
-    fill(0);
-    textSize(50);
-    textAlign(CENTER);
-    text("Welcome to \n Brainlet", width/2, 100);
-  } else if (windowName == "Main") {
-    //<>//
-    // Formatting //<>//
-    textSize(20);
-    fill(0);
 
-    textAlign(LEFT);
 
-    loadQuestions();
-    showText();
-
-    noLoop();
-  } else if (windowName == "End") {
-    fill(0);
-    textSize(50);
-    text("You passed!", width/2-100, 100);
-  }
-}
+} //<>// //<>//
