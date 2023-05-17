@@ -53,11 +53,14 @@ void subjectSelected() {
   }
 
 void txtLoad() {
+  
   if (subSelected.equals( "Geography")) {
     geoEasyQ = loadStrings("Geography/Easy.txt");
     geoMediumQ = loadStrings("Geography/Moderate.txt");
     geoHardQ = loadStrings("Geography/Hard.txt");
-  } else if (subSelected.equals("Biology")) {
+  } 
+  
+  else if (subSelected.equals("Biology")) {
     geoEasyQ = loadStrings("Biology/Easy.txt");
     geoMediumQ = loadStrings("Biology/Moderate.txt");
     geoHardQ = loadStrings("Biology/Hard.txt");
