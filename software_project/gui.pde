@@ -1,4 +1,4 @@
-/* ========================================================= //<>// //<>// //<>//
+/* ========================================================= //<>// //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -19,7 +19,7 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
   window1.setVisible(true);
   start.setVisible(false);
   subjectSelection.setVisible(false);
-} //_CODE_:start:274724: //<>// //<>//
+} //_CODE_:start:274724: //<>//
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   println("subjectSelection - GDropList >> GEvent." + event + " @ " + millis());
@@ -36,24 +36,41 @@ public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:4
 } //_CODE_:diffLevel:484514:
 
 public void Answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
-  println("button1 - GButton >> GEvent." + event + " @ " + millis());
+  if (answerLocation == 1) {
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+    
+    correct++;
+  }
 } //_CODE_:answer2:654967:
 
 public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
-  answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-  answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-  answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-  answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+  if (answerLocation == 0) {
+    answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+    
+    correct++;
+  }
 } //_CODE_:answer1:929402:
 
 public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
-  println("button3 - GButton >> GEvent." + event + " @ " + millis());
+  if (answerLocation == 2) {
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+    
+    correct++;
+  }
 } //_CODE_:answer3:262656:
 
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
   //G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-  
   answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
@@ -68,7 +85,14 @@ public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
 } //_CODE_:numTries:752762:
 
 public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
-  println("answer4 - GButton >> GEvent." + event + " @ " + millis());
+  if (answerLocation == 3) {
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    
+    correct++;
+  }
 } //_CODE_:answer4:556391:
 
 public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:

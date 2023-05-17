@@ -1,4 +1,4 @@
-import g4p_controls.*;  //<>//
+import g4p_controls.*;  //<>// //<>//
 
 Questions geoEasy, geoMedium, geoHard, geoQ;
 
@@ -10,7 +10,7 @@ PFont myFont;
 
 
 String answer, question;
-String mode = "Endless";
+String mode = "endless";
 String[] splitQuestion;
 String[] options;
 ArrayList<String> optionsArray = new ArrayList<String>();
@@ -19,6 +19,8 @@ String windowName;
 
 int current = 0;
 int agressiveness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
+int answerLocation = 0;
+int correct = 0;
 
 void setup() {
   size(800, 400);
