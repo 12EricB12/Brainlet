@@ -27,6 +27,7 @@ void setup() {
   background(255);
 
   createGUI();
+
   initialScreen();
   
   if (subSelected == "Geography") {
@@ -38,10 +39,10 @@ void setup() {
     geoMediumQ = loadStrings("Biology/Moderate.txt");
     geoHardQ = loadStrings("Biology/Hard.txt");
   }
+
+
+  displayStart();
   // Load the text documents
-  geoEasy = new Questions(geoEasyQ, mode);
-  geoMedium = new Questions(geoMediumQ, mode);
-  geoHard = new Questions(geoHardQ, mode);
 }
 
 void draw() {
@@ -50,6 +51,19 @@ void draw() {
   displayScreen();
   
 
+
+  if (windowName == "start") {
+    fill(0);
+    textSize(50);
+    textAlign(CENTER);
+    text("Welcome to \n Brainlet", width/2, 100);
+  } else if (windowName == "Main") { //<>//
+    // Formatting //<>//
+    println(subSelected);
+    txtLoad();
+    textSize(20);
+    fill(0);
+    
 
 
 } //<>// //<>//
