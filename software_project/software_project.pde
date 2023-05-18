@@ -4,6 +4,7 @@ Questions easyQ, moderateQ, hardQ, questionSet;
 
 String[] easyFile, moderateFile, hardFile; 
 
+int numOfTries;
 int lvl;
 int answerSize = 20;
 PFont myFont;

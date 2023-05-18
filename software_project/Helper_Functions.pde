@@ -95,7 +95,7 @@ void showText() {
 
   // Labels
   text("Question:", 40, 90);
-  text("Possible Answers:", 40, 250);
+  text("Possible Answers:", 40, 260);
 }
 
 void nextQuestion() {
@@ -122,39 +122,42 @@ void nextQuestion() {
 
 void checkAnswer() {
   
-  // The first answer was correct
-  if (answerLocation == 0) {
-    answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-  }
+  // Number of tries was 1:
+  if (numOfTries == 1) {
   
-  // Answer was the second option
-  if (answerLocation == 1){
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-  }
-  
-  // Answer was the third option
-  if (answerLocation == 2) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
- }
- 
-  // Answer was the fourth option
-  if (answerLocation == 3) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-  }
-  
-  current++;
+    // The first answer was correct
+    if (answerLocation == 0) {
+      answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+      answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+    }
+    
+    // Answer was the second option
+    if (answerLocation == 1){
+      answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+      answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+    }
+    
+    // Answer was the third option
+    if (answerLocation == 2) {
+      answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+      answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+   }
+   
+    // Answer was the fourth option
+    if (answerLocation == 3) {
+      answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+      answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+    }
+    
+    current++;
 }
 
 ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int randomLvl) {

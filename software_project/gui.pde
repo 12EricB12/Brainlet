@@ -64,6 +64,7 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
 } //_CODE_:nextQuestion:276653:
 
 public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
+  numOfTries = numTries.getValueI();
 } //_CODE_:numTries:752762:
 
 public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:

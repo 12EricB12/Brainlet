@@ -32,7 +32,8 @@ void displayScreen() {
   else if (windowName == "end") {
     fill(0);
     textSize(50);
-    text("You passed!", width/2-100, 100);
+    textAlign(CENTER);
+    text("You passed!", width/2, 100);
   }
   
 }
