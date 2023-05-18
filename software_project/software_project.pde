@@ -6,6 +6,7 @@ String[] easyFile, moderateFile, hardFile;
 
 int numOfTries;
 int lvl;
+int attempts;
 int answerSize = 20;
 PFont myFont;
 
@@ -22,7 +23,9 @@ String subSelected;
 int current = 0;
 
 int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
+int correct = 0;
 int answerLocation = 0;
+int buttonClicked;
 
 void setup() {
   size(800, 400);

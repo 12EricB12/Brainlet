@@ -39,15 +39,18 @@ public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:4
 } //_CODE_:diffLevel:484514:
 
 public void Answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
+  buttonClicked = 1;
   checkAnswer();
 }
 
 public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
+  buttonClicked = 0;
   checkAnswer();
   
 } //_CODE_:answer1:929402:
 
 public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
+  buttonClicked = 2;
   checkAnswer();
 
 } //_CODE_:answer3:262656:
@@ -69,6 +72,7 @@ public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
 } //_CODE_:numTries:752762:
 
 public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
+  buttonClicked = 4;
   checkAnswer();
 } //_CODE_:answer4:556391:
 
