@@ -85,10 +85,6 @@ void showText() {
     // Sets the new text y-value
     yVal += answerSize;
   }
-
-  // Create a new font for the labels
-  //myFont = createFont("Arial Bold", 20);
-  //textFont(myFont);
   
   // Empty the array
   optionsArray.clear();
@@ -123,7 +119,7 @@ void nextQuestion() {
 void checkAnswer() {
 
   // The user has one try to guess answer
-  //if (numOfTries == 1) {
+  if (numOfTries == 1) {
   
     // The first answer was correct
     if (answerLocation == 0) {
@@ -158,13 +154,13 @@ void checkAnswer() {
     }
     
     current++;
-  //}
 
   if (buttonClicked == answerLocation) { // If the user selected the answer
     checkLocation();
     correct++;
     attempts = 0;
   }
+  
   else {
     attempts++; // Otherwise, increase their number of attempts
   }
@@ -173,6 +169,7 @@ void checkAnswer() {
     checkLocation(); // If the user has run out of attempts
     attempts = 0;
   }
+}
 }
 
 void checkLocation() {

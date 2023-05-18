@@ -10,10 +10,12 @@ void displayScreen() {
   
   // Displays the title of the program
   if (windowName == "start") {
-    fill(0);
-    textSize(50);
+    fill(255);
+    textSize(40);
     textAlign(CENTER);
-    text("Welcome to \n Brainlet", width/2, 100);
+    quiz.resize(800, 500);
+    background(quiz);
+    text("Welcome to Brainlet", width/2, 150);
   }
   
   // Start button was clicked
@@ -22,7 +24,7 @@ void displayScreen() {
     // Formatting
     textSize(20);
     textAlign(LEFT);
-
+    fill(0);
     loadQuestions();
     showText();
 

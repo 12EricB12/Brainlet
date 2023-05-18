@@ -38,7 +38,7 @@ class Questions {
       this.optionsSplit = this.fullLine.split("#");
       
       // The last question was reached
-      if (questionNum == (this.fileName.length)-2) {
+      if (questionNum == (this.fileName.length)-1) {
         return "finished";
       } 
       

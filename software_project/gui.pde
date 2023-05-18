@@ -60,7 +60,6 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
   answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
- 
   
   nextQuestion();
   showText();
@@ -154,7 +153,7 @@ public void createGUI(){
   numTries.addEventHandler(this, "numofTries");
   label4 = new GLabel(window1, 147, 60, 151, 30);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label4.setText("Number of Guesses");
+  label4.setText("Controls the amount of tries on each question");
   label4.setOpaque(false);
   answer4 = new GButton(window1, 174, 239, 80, 30);
   answer4.setText("Answer 4");

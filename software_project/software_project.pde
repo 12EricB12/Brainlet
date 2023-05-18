@@ -1,4 +1,4 @@
-import g4p_controls.*;   //<>//
+import g4p_controls.*;    //<>//
 
 Questions easyQ, moderateQ, hardQ, questionSet;
 
@@ -8,7 +8,8 @@ int numOfTries;
 int lvl;
 int attempts;
 int answerSize = 20;
-PFont myFont;
+
+PImage quiz;
 
 String answer, question;
 String mode = "Test"; // Possible options: Test, Endless
@@ -28,17 +29,18 @@ int answerLocation = 0;
 int buttonClicked;
 
 void setup() {
-  size(800, 400);
-  background(255);
-
+  
+  quiz = loadImage("background.jpg");
+  size(800, 500);
+ //<>//
   createGUI();
-  displayMainMenu(); //<>//
+  displayMainMenu(); 
 }
 
 void draw() {
   background(254, 221, 216);
   
-  // Display the other screens
+  // Display the other screens //<>//
   displayScreen();
- //<>//
+ //<>// //<>//
 }
