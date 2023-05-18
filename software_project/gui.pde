@@ -1,4 +1,4 @@
-/* =========================================================  //<>//
+/* =========================================================  //<>// //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -19,7 +19,7 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
   window1.setVisible(true);
   start.setVisible(false);
   subjectSelection.setVisible(false);
-} //_CODE_:start:274724: //<>//
+} //_CODE_:start:274724: //<>// //<>//
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   subSelected = subjectSelection.getSelectedText();
@@ -100,10 +100,10 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  start = new GButton(this, 342, 208, 108, 51);
+  start = new GButton(this, 342, 280, 108, 51);
   start.setText("Start");
   start.addEventHandler(this, "button1_click1");
-  subjectSelection = new GDropList(this, 332, 275, 128, 93, 2, 10);
+  subjectSelection = new GDropList(this, 332, 355, 128, 93, 2, 10);
   subjectSelection.setItems(loadStrings("list_215520"), 0);
   subjectSelection.addEventHandler(this, "dropList1_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);

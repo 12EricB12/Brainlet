@@ -15,7 +15,7 @@ void displayScreen() {
     textAlign(CENTER);
     quiz.resize(800, 500);
     background(quiz);
-    text("Welcome to Brainlet", width/2, 150);
+    text("Welcome to Brainlet", width/2, 225);
   }
   
   // Start button was clicked
