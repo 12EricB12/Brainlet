@@ -13,18 +13,22 @@ void displayScreen() {
     fill(255);
     textSize(40);
     textAlign(CENTER);
-    quiz.resize(800, 500);
-    background(quiz);
+    mainMenu.resize(800, 500);
+    background(mainMenu);
     text("Welcome to Brainlet", width/2, 225);
   }
   
   // Start button was clicked
   else if (windowName == "begin") {
    
-    // Formatting
+    // Text Formatting
     textSize(20);
     textAlign(LEFT);
-    fill(0);
+    
+    // Image Formatting
+    questionScreen.resize(800, 500);
+    background(questionScreen);
+    
     loadQuestions();
     showText();
 

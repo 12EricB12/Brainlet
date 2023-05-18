@@ -52,11 +52,11 @@ void loadQuestions() {
 void showText() {
 
   // Initial y-value of answer
-  int yVal = 300;
+  int yVal = 330;
 
   // Creates the question on screen
   question = String.join("", splitQuestion);
-  text(question, 40, 100, 700, 700);
+  text(question, 200, 130, 500, 500);
 
   // FOR THE ANSWER
   textSize(answerSize); 
@@ -80,7 +80,7 @@ void showText() {
     textSize(answerSize); 
 
     // Creates the remaining options
-    text(String.valueOf(i + 1) + ". " + optionsArray.get(i), 40, yVal);
+    text(String.valueOf(i + 1) + ". " + optionsArray.get(i), 200, yVal);
 
     // Sets the new text y-value
     yVal += answerSize;
@@ -90,8 +90,7 @@ void showText() {
   optionsArray.clear();
 
   // Labels
-  text("Question:", 40, 90);
-  text("Possible Answers:", 40, 260);
+  text("Possible Answers:", 200, 300);
 }
 
 void nextQuestion() {

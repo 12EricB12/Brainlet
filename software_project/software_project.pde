@@ -9,7 +9,7 @@ int lvl;
 int attempts;
 int answerSize = 20;
 
-PImage quiz;
+PImage mainMenu, questionScreen ;
 
 String answer, question;
 String mode = "Test"; // Possible options: Test, Endless
@@ -30,7 +30,8 @@ int buttonClicked;
 
 void setup() {
   
-  quiz = loadImage("background.jpg");
+  mainMenu = loadImage("background.jpg");
+  questionScreen = loadImage("startquiz.jpg");
   size(800, 500);
  //<>//
   createGUI();
