@@ -27,7 +27,6 @@ class Questions {
     return question;
   }
   
-  
   String nextQuestion(int questionNum, ArrayList<String> selection) {
     
     // The user chose the "test" mode

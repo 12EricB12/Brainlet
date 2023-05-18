@@ -77,11 +77,13 @@ public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
   answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   
+  // Reset values
   current = 0;
   pastQuestions.clear();
-  //questionSet.nextQuestion(current, pastQuestions);
-  nextQuestion();
   
+  // Call these functions again
+  subjectSelected();
+  loadQuestions();
   redraw();
 } //_CODE_:reset:241784:
 

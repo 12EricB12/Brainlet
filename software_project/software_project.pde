@@ -9,9 +9,8 @@ int lvl;
 int answerSize = 20;
 PFont myFont;
 
-
 String answer, question;
-String mode = "Random"; // Possible options: Test, Endless
+String mode = "Test"; // Possible options: Test, Endless
 
 String[] splitQuestion;
 String[] options;
@@ -24,7 +23,6 @@ int current = 0;
 
 int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
 int answerLocation = 0;
-int correct = 0;
 
 void setup() {
   size(800, 400);
