@@ -123,7 +123,7 @@ void nextQuestion() {
 void checkAnswer() {
 
   // The user has one try to guess answer
-  if (numOfTries == 1) {
+  //if (numOfTries == 1) {
   
     // The first answer was correct
     if (answerLocation == 0) {
@@ -158,20 +158,8 @@ void checkAnswer() {
     }
     
     current++;
-  }
-  
-  if (numOfTries == 2) {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  }
+  //}
+
 }
 
 ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int randomLvl) {
