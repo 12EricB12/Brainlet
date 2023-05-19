@@ -116,12 +116,10 @@ void nextQuestion() {
 }
 
 void checkAnswer() {
-
-  // The user has one try to guess the answer
   
   // User selected the answer
   if (buttonClicked == answerLocation) { 
-    println("A");
+    println("Correct");
     checkLocation();
     correct++;
     current++;
@@ -139,8 +137,6 @@ void checkAnswer() {
     current++;
     attempts = 0;
   }
-  println(current);
-
 }
 
 void checkLocation() {

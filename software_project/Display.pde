@@ -45,14 +45,16 @@ void displayScreen() {
     textSize(50);
     textAlign(CENTER);
 
-    // Image formatting
+    
     int percent = calculatePercent(correct, numOfQuestions);
-
+    
+    // Image formatting
     endingScreen.resize(800, 500);
     background(endingScreen);
 
     text("Great job!", width/2, 250);
     textSize(25);
     text("Your score: " + String.valueOf(percent) + "%", width/2, 300); 
+    println(correct);
   }
 }
