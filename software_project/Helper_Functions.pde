@@ -249,3 +249,22 @@ String[] deleteElemInArray(String[] pastArray, String elem) {
   String[] newArr = newArray.toArray(new String[newArray.size()]);
   return newArr;
 }
+void restartApp(){
+  //windowName = "start";
+  //mainMenu();
+  //displayScreen();
+  //createGUI();
+  //window1.setVisible(false);
+  //start.setVisible(true);
+  //subjectSelection.setVisible(true);
+  
+  //redraw();
+    
+  mainMenu = loadImage("background.jpg");
+  questionScreen = loadImage("startquiz.jpg");
+  endingScreen = loadImage("endingImage.jpg");
+ //<>//
+  createGUI();
+  mainMenu(); 
+  redraw();
+}
