@@ -25,7 +25,7 @@ PImage mainMenu, questionScreen, endingScreen ;
 
 // CHANGEABLE VALUES
 int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
-String mode = "Endless"; // Possible options: Test, Endless, Random
+String mode = "Test"; // Possible options: Test, Endless, Random
 
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();

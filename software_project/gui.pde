@@ -90,7 +90,8 @@ public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
   loadQuestions();
   redraw();
 } //_CODE_:reset:241784:
-public void button1_click2(GButton source, GEvent event) { //_CODE_:restart:546326:
+
+public void restartClicked(GButton source, GEvent event) { //_CODE_:restart:546326:
   println("restart - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:restart:546326:
 
@@ -166,7 +167,7 @@ public void createGUI(){
   reset.addEventHandler(this, "Reset");
   restart = new GButton(window1, 100, 365, 80, 30);
   restart.setText("Restart");
-  restart.addEventHandler(this, "button1_click2");
+  restart.addEventHandler(this, "restartClicked");
   window1.loop();
 }
 

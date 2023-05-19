@@ -24,6 +24,9 @@ void displayScreen() {
 
   // Start button was clicked
   else if (windowName == "begin") {
+    
+    // Hide the "restart" button
+     restart.setVisible(false);
 
     // Text formatting
     textSize(20);
@@ -32,7 +35,7 @@ void displayScreen() {
     // Image formatting
     questionScreen.resize(800, 500);
     background(questionScreen);
-
+   
     loadQuestions();
     showText();
     noLoop();
@@ -40,7 +43,10 @@ void displayScreen() {
 
   // Ending screen
   else if (windowName == "end") {
+    // Display restart button
+     restart.setVisible(true);
 
+      
     // Text formatting
     textSize(50);
     textAlign(CENTER);
