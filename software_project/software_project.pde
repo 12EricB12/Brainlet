@@ -1,4 +1,4 @@
-import g4p_controls.*;    //<>//
+import g4p_controls.*;     //<>//
 
 Questions easyQ, moderateQ, hardQ, questionSet;
 
@@ -15,6 +15,7 @@ int lvl; // Difficulty level
 int current = 0; // Current question
 int correct = 0; // Number of correct questions
 int attempts;
+int numOfQuestions;
 int answerSize = 20;
 int answerLocation = 0;
 int buttonClicked;
@@ -28,7 +29,7 @@ String mode = "Endless"; // Possible options: Test, Endless, Random
 
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();
-
+ //<>//
 void setup() {
   size(800, 500);
   
@@ -36,7 +37,7 @@ void setup() {
   mainMenu = loadImage("background.jpg");
   questionScreen = loadImage("startquiz.jpg");
   endingScreen = loadImage("endingImage.jpg");
-  //<>//
+  //<>// //<>//
   createGUI();
   mainMenu(); 
 }
