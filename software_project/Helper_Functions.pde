@@ -33,6 +33,7 @@ void displayScreen() {
     textSize(50);
     text("You passed!", width/2-100, 100);
   }
+}
 
 void txtLoad() {
   if (subSelected.equals( "Geography")) {
