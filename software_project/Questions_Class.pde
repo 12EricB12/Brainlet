@@ -31,11 +31,7 @@ class Questions {
     
     // The user chose the "test" mode
     if (this.mode.equals("Test")) { 
-      String question;
       
-      // Loads and seperates the relevant question from the full file
-      this.fullLine = this.fileName[questionNum]; 
-      this.optionsSplit = this.fullLine.split("#");
       
       // The last question was reached
       if (questionNum == (this.fileName.length)-1) {
@@ -44,24 +40,18 @@ class Questions {
       
       // There are still unasked questions
       else {
-        question = this.optionsSplit[0];
-      }
+        String question;
       
-      return question;
+        // Loads and seperates the relevant question from the full file
+        this.fullLine = this.fileName[questionNum]; 
+        this.optionsSplit = this.fullLine.split("#");
+        question = this.optionsSplit[0];
+        return question;
+      }
     }
     
     // Random mode was chosen
     else if (this.mode.equals("Random")) { 
-      
-      // Loads and seperates a random question from the full file
-      this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; 
-      this.optionsSplit = this.fullLine.split("#");
-      
-      String question = this.optionsSplit[0];
-      
-      // Deletes the element that was randomly selected to prevent it from being reselected
-      this.fileName = deleteElemInArray(this.fileName, this.fullLine); 
-      
       // If all elements have been cycled through, display the end screen
       if (this.fileName.length == 0) {
         return "finished"; 
@@ -69,6 +59,14 @@ class Questions {
       
       // Otherwise, display the question
       else {
+        // Loads and seperates a random question from the full file
+        this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; 
+        this.optionsSplit = this.fullLine.split("#");
+        
+        String question = this.optionsSplit[0];
+        
+        // Deletes the element that was randomly selected to prevent it from being reselected
+        this.fileName = deleteElemInArray(this.fileName, this.fullLine); 
         return question; 
       }
     }
