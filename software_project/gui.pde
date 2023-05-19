@@ -35,6 +35,8 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 
 public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:484514:
   lvl = diffLevel.getValueI();
+  sliderChanged = true;
+ 
   redraw();
 } //_CODE_:diffLevel:484514:
 

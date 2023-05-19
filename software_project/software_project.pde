@@ -16,30 +16,27 @@ int current = 0; // Current question
 int correct = 0; // Number of correct questions
 int attempts;
 int answerSize = 20;
-
 int answerLocation = 0;
 int buttonClicked;
 
+boolean sliderChanged;
 PImage mainMenu, questionScreen, endingScreen ; 
 
 // CHANGEABLE VALUES
 int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
-String mode = "Test"; // Possible options: Test, Endless, Random
-
+String mode = "Endless"; // Possible options: Test, Endless, Random
 
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();
 
-
-
-
 void setup() {
+  size(800, 500);
   
+  // Load background images
   mainMenu = loadImage("background.jpg");
   questionScreen = loadImage("startquiz.jpg");
   endingScreen = loadImage("endingImage.jpg");
-  size(800, 500);
- //<>//
+  //<>//
   createGUI();
   mainMenu(); 
 }

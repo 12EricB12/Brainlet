@@ -71,9 +71,12 @@ void showText() {
     optionsArray.add(options[i]);
   }
   
-  // Shuffle options, and locate the correct answer
-  Collections.shuffle(optionsArray);
-  answerLocation = optionsArray.indexOf(answer);
+  // If the difficulty level has not changed, shuffle options and locate the correct answer
+  if (!sliderChanged) {
+    Collections.shuffle(optionsArray);
+    answerLocation = optionsArray.indexOf(answer);
+  }
+ 
   
   // Outputs the remaining options
   for (int i = 0; i < optionsArray.size(); i++) {
@@ -165,7 +168,6 @@ void checkAnswer() {
   
   // Otherwise, increase their number of attempts
   else {
-    
     attempts++; 
   }
   

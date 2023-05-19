@@ -50,6 +50,5 @@ void displayScreen() {
     background(endingScreen);
     text("You passed!", width/2, 250);
     
-    println(attempts);
   }
 }
