@@ -1,6 +1,5 @@
 import java.util.Collections;
 
-
 void subjectSelected() {
   
   // Geography was selected
@@ -17,6 +16,7 @@ void subjectSelected() {
     hardFile = loadStrings("Biology/Hard.txt");
   }
   
+  // Create questions based on the file and mode
   easyQ = new Questions(easyFile, mode);
   moderateQ = new Questions(moderateFile, mode);
   hardQ = new Questions(hardFile, mode);
@@ -40,57 +40,54 @@ void loadQuestions() {
     questionSet = hardQ;
   }
 
-  // Gets the questions and answers from the text file
-  answer = questionSet.getAnswer(); 
-  question = questionSet.getQuestion(); 
-  options = questionSet.randomizeSelection(4); // Generates the options that the user can pick from
-
+  // Get questions and split it
+  question = questionSet.getQuestion();
   splitQuestion = question.split("");
+  
+  // Get the answers and randomize the options
+  answer = questionSet.getAnswer(); 
+  options = questionSet.randomizeSelection(4); 
 }
 
 
 void showText() {
 
-  // Initial y-value of answer
+  // Answer's y-value
   int yVal = 330;
 
-  // Creates the question on screen
+  // Displays the question on screen
   question = String.join("", splitQuestion);
   text(question, 200, 130, 500, 500);
 
   // FOR THE ANSWER
+  text("Possible Answers:", 200, 300);
   textSize(answerSize); 
   
   // Add the answer to the array
   optionsArray.add(answer);
   
+  // Adds all the remaining options to the array
   for (int i = 0; i < options.length; i++) {
-    
-    // Add the remaining options to the array
     optionsArray.add(options[i]);
   }
   
-  // Shuffles the options, and locates the correct answer
+  // Shuffle options, and locate the correct answer
   Collections.shuffle(optionsArray);
   answerLocation = optionsArray.indexOf(answer);
   
   // Outputs the remaining options
   for (int i = 0; i < optionsArray.size(); i++) {
-    
     textSize(answerSize); 
 
     // Creates the remaining options
     text(String.valueOf(i + 1) + ". " + optionsArray.get(i), 200, yVal);
 
-    // Sets the new text y-value
+    // Set new y-value
     yVal += answerSize;
   }
   
   // Empty the array
   optionsArray.clear();
-
-  // Labels
-  text("Possible Answers:", 200, 300);
 }
 
 void nextQuestion() {
@@ -100,24 +97,28 @@ void nextQuestion() {
   options = questionSet.randomizeSelection(4);
   splitQuestion = question.split("");
 
+  // All the questions have been asked
   if (question.equals( "finished")) {
     windowName = "end";
   }
-
+  
+  // If test mode, increment current questions
   if (mode.equals( "Test")) {
     current++;
   } 
   
+  // If endless mode, rotate through the questions
   else if (mode == "Endless") {
     pastQuestions = rotateArrayList(pastQuestions, question, randomness);
   }
 
+  // Add the displayed question to the array
   pastQuestions.add(question);
 }
 
 void checkAnswer() {
 
-  // The user has one try to guess answer
+  // The user has one try to guess the answer
   if (numOfTries == 1) {
   
     // The first answer was correct
@@ -153,22 +154,27 @@ void checkAnswer() {
     }
     
     current++;
-
-  if (buttonClicked == answerLocation) { // If the user selected the answer
+  }
+  
+  // User selected the answer
+  if (buttonClicked == answerLocation) { 
     checkLocation();
     correct++;
     attempts = 0;
   }
   
+  // Otherwise, increase their number of attempts
   else {
-    attempts++; // Otherwise, increase their number of attempts
+    
+    attempts++; 
   }
   
+  // If the user has run out of attempts
   if (numOfTries - attempts == 0) {
-    checkLocation(); // If the user has run out of attempts
+    checkLocation(); 
     attempts = 0;
   }
-}
+
 }
 
 void checkLocation() {

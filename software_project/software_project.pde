@@ -3,45 +3,50 @@ import g4p_controls.*;    //<>//
 Questions easyQ, moderateQ, hardQ, questionSet;
 
 String[] easyFile, moderateFile, hardFile; 
+String[] splitQuestion;
+String[] options; 
 
-int numOfTries;
-int lvl;
+String answer, question;
+String windowName;
+String subSelected; // Selected subject
+
+int numOfTries = 1; // Initial value
+int lvl; // Difficulty level
+int current = 0; // Current question
+int correct = 0; // Number of correct questions
 int attempts;
 int answerSize = 20;
 
-PImage mainMenu, questionScreen ;
-
-String answer, question;
-String mode = "Test"; // Possible options: Test, Endless
-
-String[] splitQuestion;
-String[] options;
-ArrayList<String> optionsArray = new ArrayList<String>();
-ArrayList<String> pastQuestions = new ArrayList<String>();
-String windowName;
-String subSelected;
-
-int current = 0;
-
-int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
-int correct = 0;
 int answerLocation = 0;
 int buttonClicked;
+
+PImage mainMenu, questionScreen, endingScreen ; 
+
+// CHANGEABLE VALUES
+int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
+String mode = "Test"; // Possible options: Test, Endless, Random
+
+
+ArrayList<String> optionsArray = new ArrayList<String>();
+ArrayList<String> pastQuestions = new ArrayList<String>();
+
+
+
 
 void setup() {
   
   mainMenu = loadImage("background.jpg");
   questionScreen = loadImage("startquiz.jpg");
+  endingScreen = loadImage("endingImage.jpg");
   size(800, 500);
  //<>//
   createGUI();
-  displayMainMenu(); 
+  mainMenu(); 
 }
 
 void draw() {
   background(254, 221, 216);
   
   // Display the other screens //<>//
-  displayScreen();
- //<>// //<>//
+  displayScreen(); //<>//
 }
