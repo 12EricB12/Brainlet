@@ -1,66 +1,52 @@
-import g4p_controls.*;  //<>// //<>// //<>// //<>// //<>// //<>//
+import g4p_controls.*;    //<>//
 
-Questions geoEasy, geoMedium, geoHard, geoQ;
+Questions easyQ, moderateQ, hardQ, questionSet;
 
-String[] geoEasyQ, geoMediumQ, geoHardQ;
-
-int lvl;
-int answerSize = 20;
-PFont myFont;
-
+String[] easyFile, moderateFile, hardFile; 
+String[] splitQuestion;
+String[] options; 
 
 String answer, question;
-String mode = "Test";
+String windowName;
+String subSelected; // Selected subject
 
-String[] splitQuestion;
-String[] options;
+int numOfTries = 1; // Initial value
+int lvl; // Difficulty level
+int current = 0; // Current question
+int correct = 0; // Number of correct questions
+int attempts;
+int answerSize = 20;
+
+int answerLocation = 0;
+int buttonClicked;
+
+PImage mainMenu, questionScreen, endingScreen ; 
+
+// CHANGEABLE VALUES
+int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
+String mode = "Test"; // Possible options: Test, Endless, Random
+
+
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();
-String windowName;
-String subSelected;
 
-int current = 0;
 
-int aggressiveness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
-int answerLocation = 0;
-int correct = 0;
+
 
 void setup() {
-  size(800, 400);
-  background(255);
-
-  createGUI();
-
-  initialScreen();
   
-  if (subSelected == "Geography") {
-    geoEasyQ = loadStrings("Geography/Easy.txt");
-    geoMediumQ = loadStrings("Geography/Moderate.txt");
-    geoHardQ = loadStrings("Geography/Hard.txt");
-  } else if (subSelected == "Biology") {
-    geoEasyQ = loadStrings("Biology/Easy.txt"); //<>//
-    geoMediumQ = loadStrings("Biology/Moderate.txt"); //<>//
-    geoHardQ = loadStrings("Biology/Hard.txt");
-  }
-
-
-  displayStart();
-  // Load the text documents
+  mainMenu = loadImage("background.jpg");
+  questionScreen = loadImage("startquiz.jpg");
+  endingScreen = loadImage("endingImage.jpg");
+  size(800, 500);
+ //<>//
+  createGUI();
+  mainMenu(); 
 }
 
 void draw() {
   background(254, 221, 216);
-  displayScreen();
-
-  if (windowName == "start") {
-    fill(0); //<>//
-    textSize(50); //<>//
-    textAlign(CENTER);
-
-    text("Welcome to \n Brainlet", width/2, 100);
-  } else if (windowName == "Main") { //<>//
-    // Formatting //<>//
-    textSize(20);
-    fill(0); //<>//
-   
-} 
+  
+  // Display the other screens //<>//
+  displayScreen(); //<>//
+}

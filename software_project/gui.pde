@@ -1,4 +1,4 @@
-/* ========================================================= //<>// //<>// //<>//
+/* =========================================================  //<>// //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -15,15 +15,17 @@
  */
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724:
-  windowName = "Main";
+  windowName = "begin";
   window1.setVisible(true);
   start.setVisible(false);
   subjectSelection.setVisible(false);
-} //_CODE_:start:274724: //<>//
+} //_CODE_:start:274724: //<>// //<>//
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   subSelected = subjectSelection.getSelectedText();
-  txtLoad();
+  subjectSelected();
+  
+  
   //print(subjectSelection.getSelectedText());
 } //_CODE_:subjectSelection:215520:
 
@@ -37,40 +39,23 @@ public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:4
 } //_CODE_:diffLevel:484514:
 
 public void Answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
-  if (answerLocation == 1) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-    
-    current++;
-  }
+  buttonClicked = 1;
+  checkAnswer();
 }
 
 public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
-  if (answerLocation == 0) {
-    answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-    
-    correct++;
-  }
+  buttonClicked = 0;
+  checkAnswer();
+  
 } //_CODE_:answer1:929402:
 
 public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
-  if (answerLocation == 2) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-    
-    correct++;
-  }
+  buttonClicked = 2;
+  checkAnswer();
+
 } //_CODE_:answer3:262656:
 
 public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
-  //G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
@@ -82,20 +67,28 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
 } //_CODE_:nextQuestion:276653:
 
 public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
+  numOfTries = numTries.getValueI();
 } //_CODE_:numTries:752762:
 
 public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
-  if (answerLocation == 3) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-    answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    
-    correct++;
-  }
+  buttonClicked = 4;
+  checkAnswer();
 } //_CODE_:answer4:556391:
 
 public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
+  answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  
+  // Reset values
+  current = 0;
+  pastQuestions.clear();
+  
+  // Call these functions again
+  subjectSelected();
+  loadQuestions();
+  redraw();
 } //_CODE_:reset:241784:
 
 
@@ -107,10 +100,10 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  start = new GButton(this, 342, 208, 108, 51);
+  start = new GButton(this, 342, 280, 108, 51);
   start.setText("Start");
   start.addEventHandler(this, "button1_click1");
-  subjectSelection = new GDropList(this, 332, 275, 128, 93, 2, 10);
+  subjectSelection = new GDropList(this, 332, 355, 128, 93, 2, 10);
   subjectSelection.setItems(loadStrings("list_215520"), 0);
   subjectSelection.addEventHandler(this, "dropList1_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);
@@ -139,7 +132,7 @@ public void createGUI(){
   label3.setOpaque(false);
   answer2 = new GButton(window1, 174, 169, 80, 30);
   answer2.setText("Answer 2");
-  answer2.addEventHandler(this, "snswer2");
+  answer2.addEventHandler(this, "Answer2");
   answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "Answer1");
@@ -160,7 +153,7 @@ public void createGUI(){
   numTries.addEventHandler(this, "numofTries");
   label4 = new GLabel(window1, 147, 60, 151, 30);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label4.setText("Controls the amount of tries on each question");
+  label4.setText("Number of Tries");
   label4.setOpaque(false);
   answer4 = new GButton(window1, 174, 239, 80, 30);
   answer4.setText("Answer 4");
