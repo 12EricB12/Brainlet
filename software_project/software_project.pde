@@ -20,7 +20,7 @@ int answerSize = 20;
 int answerLocation = 0;
 int buttonClicked;
 
-boolean sliderChanged;
+boolean sliderChanged = false;
 boolean answerSelected = false;
 PImage mainMenu, questionScreen, endingScreen ; 
 

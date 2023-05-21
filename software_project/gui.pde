@@ -59,6 +59,7 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
   answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   
   answerSelected = false;
+  current++;
   nextQuestion();
   showText();
   redraw();

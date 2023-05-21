@@ -5,4 +5,3 @@ Photosynthesis is essential for plant survival. What is the name of the green pi
 This organelle is considered the powerhouse of the cell, generating the energy needed to power cellular functions. #Mitochondria, Ribosomes, Nucleus, Lysosomes
 These unicellular organisms are extremely small, and they can only be seen under a microsome. Surprisingly, they make up 60% of Earth’s living matter. #Microbes, Macromolecules, Oxygen, Xylem
 This specific process is when two new daughter cells are created from a single parent cell. The parent cell donates identical copies of chromosomes, allowing for cell replacement. #Mitosis, Meiosis, Photosynthesis, Reproduction
-

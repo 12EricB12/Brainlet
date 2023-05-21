@@ -77,7 +77,10 @@ void showText() {
     Collections.shuffle(optionsArray);
     answerLocation = optionsArray.indexOf(answer);
   }
- 
+  else {
+    current = 0;
+    sliderChanged = !sliderChanged; // Makes sure that the answers are still shuffled after changing the bar
+  }
   
   // Outputs the remaining options
   for (int i = 0; i < optionsArray.size(); i++) {
@@ -111,11 +114,6 @@ void nextQuestion() {
     pastQuestions = rotateArrayList(pastQuestions, question, randomness);
   }
   
-  // If test mode, move on to the next question immediately
-  else if (mode == "Test") {
-    current++;
-  }
-
   // Add the displayed question to the array
   pastQuestions.add(question);
 }
@@ -125,12 +123,14 @@ void checkAnswer() {
   // User selected the answer
   if (buttonClicked == answerLocation) { 
     checkLocation();
+    
     if (!answerSelected) {
       println("A");
       correct++;
       current++;
+      answerSelected = true;
     }
-    answerSelected = true;
+    
     attempts = 0;
   }
   
@@ -142,6 +142,7 @@ void checkAnswer() {
   // If the user has run out of attempts
   if (numOfTries - attempts == 0) {
     checkLocation(); 
+    
     if (!answerSelected) {
       current++;
     }
@@ -149,7 +150,6 @@ void checkAnswer() {
     answerSelected = true;
     attempts = 0;
   }
-  println(correct);
 }
 
 void checkLocation() {

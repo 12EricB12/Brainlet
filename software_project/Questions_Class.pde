@@ -33,7 +33,7 @@ class Questions {
     
     // The user chose the "test" mode
     if (this.mode.equals("Test")) {
-      
+      println(this.fileName.length);
       // The last question was reached
       if (questionNum == this.fileName.length) {
         return "finished";
@@ -44,6 +44,7 @@ class Questions {
         String question;
       
         // Loads and seperates the relevant question from the full file
+        println(questionNum);
         this.fullLine = this.fileName[questionNum]; 
         this.optionsSplit = this.fullLine.split("#");
         question = this.optionsSplit[0];
