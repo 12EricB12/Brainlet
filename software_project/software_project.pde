@@ -21,6 +21,7 @@ int answerLocation = 0;
 int buttonClicked;
 
 boolean sliderChanged;
+boolean answerSelected = false;
 PImage mainMenu, questionScreen, endingScreen ; 
 
 // CHANGEABLE VALUES

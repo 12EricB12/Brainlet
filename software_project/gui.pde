@@ -24,9 +24,6 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   subSelected = subjectSelection.getSelectedText();
   subjectSelected();
-
-
-  //print(subjectSelection.getSelectedText());
 } //_CODE_:subjectSelection:215520:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:454168:
@@ -60,7 +57,8 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
   answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-
+  
+  answerSelected = false;
   nextQuestion();
   showText();
   redraw();
@@ -83,11 +81,27 @@ public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
 
   // Reset values
   current = 0;
+  correct = 0;
   pastQuestions.clear();
+  
+  subjectSelection = new GDropList(this, 334, 320, 126, 63, 2, 10);
+  subjectSelection.setItems(loadStrings("list_215520"), 0);
+  subjectSelection.addEventHandler(this, "dropList1_click1");
+  
+  start = new GButton(this, 342, 255, 108, 51);
+  start.setText("Start");
+  start.addEventHandler(this, "button1_click1");
+  
+  subjectSelection.setVisible(true);
+  start.setVisible(true);
 
   // Call these functions again
   subjectSelected();
   loadQuestions();
+  
+  subjectSelection.draw();
+  
+  windowName = "start"; // Reset the window to the start menu
   redraw();
 } //_CODE_:reset:241784:
 

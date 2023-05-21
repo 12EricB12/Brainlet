@@ -107,8 +107,13 @@ void nextQuestion() {
   }
   
   // If endless mode, rotate through the questions
-  else if (mode == "Endless") {
+  if (mode == "Endless") {
     pastQuestions = rotateArrayList(pastQuestions, question, randomness);
+  }
+  
+  // If test mode, move on to the next question immediately
+  else if (mode == "Test") {
+    current++;
   }
 
   // Add the displayed question to the array
@@ -119,10 +124,13 @@ void checkAnswer() {
   
   // User selected the answer
   if (buttonClicked == answerLocation) { 
-    println("Correct");
     checkLocation();
-    correct++;
-    current++;
+    if (!answerSelected) {
+      println("A");
+      correct++;
+      current++;
+    }
+    answerSelected = true;
     attempts = 0;
   }
   
@@ -134,9 +142,14 @@ void checkAnswer() {
   // If the user has run out of attempts
   if (numOfTries - attempts == 0) {
     checkLocation(); 
-    current++;
+    if (!answerSelected) {
+      current++;
+    }
+    
+    answerSelected = true;
     attempts = 0;
   }
+  println(correct);
 }
 
 void checkLocation() {

@@ -35,7 +35,7 @@ class Questions {
     if (this.mode.equals("Test")) {
       
       // The last question was reached
-      if (questionNum == (this.fileName.length)-1) {
+      if (questionNum == this.fileName.length) {
         return "finished";
       } 
       
@@ -53,12 +53,7 @@ class Questions {
       
     else if (this.mode.equals("Random")) { 
       // If all elements have been cycled through, display the end screen
-      if (this.fileName.length == 0) {
-        return "finished"; 
-      }
-      
-      // Otherwise, display the question
-      else {
+      try {
         // Loads and seperates a random question from the full file
         this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; 
         this.optionsSplit = this.fullLine.split("#");
@@ -67,7 +62,11 @@ class Questions {
         
         // Deletes the element that was randomly selected to prevent it from being reselected
         this.fileName = deleteElemInArray(this.fileName, this.fullLine); 
+        println("A");
         return question; 
+      }
+      catch (ArrayIndexOutOfBoundsException e) {
+        return "finished";
       }
     }
     
