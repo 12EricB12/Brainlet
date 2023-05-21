@@ -41,6 +41,7 @@ void loadQuestions() {
   }
 
   // Get questions and split it
+  numOfQuestions = questionSet.fileName.length;
   question = questionSet.getQuestion();
   splitQuestion = question.split("");
   
@@ -71,9 +72,12 @@ void showText() {
     optionsArray.add(options[i]);
   }
   
-  // Shuffle options, and locate the correct answer
-  Collections.shuffle(optionsArray);
-  answerLocation = optionsArray.indexOf(answer);
+  // If the difficulty level has not changed, shuffle options and locate the correct answer
+  if (!sliderChanged) {
+    Collections.shuffle(optionsArray);
+    answerLocation = optionsArray.indexOf(answer);
+  }
+ 
   
   // Outputs the remaining options
   for (int i = 0; i < optionsArray.size(); i++) {
@@ -102,11 +106,6 @@ void nextQuestion() {
     windowName = "end";
   }
   
-  // If test mode, increment current questions
-  if (mode.equals( "Test")) {
-    current++;
-  } 
-  
   // If endless mode, rotate through the questions
   else if (mode == "Endless") {
     pastQuestions = rotateArrayList(pastQuestions, question, randomness);
@@ -119,61 +118,28 @@ void nextQuestion() {
 void checkAnswer() {
 
   // The user has one try to guess the answer
-  if (numOfTries == 1) {
-  
-    // The first answer was correct
-    if (answerLocation == 0) {
-      answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-      answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-    }
-    
-    // Answer was the second option
-    if (answerLocation == 1){
-      answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-      answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-    }
-    
-    // Answer was the third option
-    if (answerLocation == 2) {
-      answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-      answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
-   }
-   
-    // Answer was the fourth option
-    if (answerLocation == 3) {
-      answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-      answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
-    }
-    
-    current++;
-  }
   
   // User selected the answer
   if (buttonClicked == answerLocation) { 
+    println("A");
     checkLocation();
     correct++;
+    current++;
     attempts = 0;
   }
   
   // Otherwise, increase their number of attempts
   else {
-    
     attempts++; 
   }
   
   // If the user has run out of attempts
   if (numOfTries - attempts == 0) {
     checkLocation(); 
+    current++;
     attempts = 0;
   }
+  println(current);
 
 }
 
@@ -249,22 +215,8 @@ String[] deleteElemInArray(String[] pastArray, String elem) {
   String[] newArr = newArray.toArray(new String[newArray.size()]);
   return newArr;
 }
-void restartApp(){
-  //windowName = "start";
-  //mainMenu();
-  //displayScreen();
-  //createGUI();
-  //window1.setVisible(false);
-  //start.setVisible(true);
-  //subjectSelection.setVisible(true);
-  
-  //redraw();
-    
-  mainMenu = loadImage("background.jpg");
-  questionScreen = loadImage("startquiz.jpg");
-  endingScreen = loadImage("endingImage.jpg");
- //<>//
-  createGUI();
-  mainMenu(); 
-  redraw();
+
+
+int calculatePercent(float correct, float total) {
+  return round((correct/total) * 100);
 }
