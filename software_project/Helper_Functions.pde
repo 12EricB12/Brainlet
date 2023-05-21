@@ -225,6 +225,7 @@ String[] deleteElemInArray(String[] pastArray, String elem) {
   return newArr;
 }
 
+
 int calculatePercent(float correct, float total) {
   return round((correct/total) * 100);
 }
