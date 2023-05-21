@@ -24,6 +24,9 @@ void displayScreen() {
 
   // Start button was clicked
   else if (windowName == "begin") {
+    
+    // Hide the "restart" button
+     restart.setVisible(false);
 
     // Text formatting
     textSize(20);
@@ -32,7 +35,7 @@ void displayScreen() {
     // Image formatting
     questionScreen.resize(800, 500);
     background(questionScreen);
-
+   
     loadQuestions();
     showText();
     noLoop();
@@ -40,19 +43,24 @@ void displayScreen() {
 
   // Ending screen
   else if (windowName == "end") {
+    // Display restart button
+     restart.setVisible(true);
 
+      
     // Text formatting
     textSize(50);
     textAlign(CENTER);
 
-    // Image formatting
+    
     int percent = calculatePercent(correct, numOfQuestions);
-
+    
+    // Image formatting
     endingScreen.resize(800, 500);
     background(endingScreen);
 
     text("Great job!", width/2, 250);
     textSize(25);
     text("Your score: " + String.valueOf(percent) + "%", width/2, 300); 
+    println(correct);
   }
 }
