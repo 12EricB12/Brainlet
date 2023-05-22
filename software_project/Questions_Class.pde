@@ -31,11 +31,12 @@ class Questions {
   
   String nextQuestion(int questionNum, ArrayList<String> selection) {
     
-    // The user chose the "test" mode
+    // The user chose the "test" mode4
     if (this.mode.equals("Test")) {
-      println(this.fileName.length);
+      
       // The last question was reached
       if (questionNum == this.fileName.length) {
+        println("The question number is ", questionNum);
         return "finished";
       } 
       
@@ -44,15 +45,16 @@ class Questions {
         String question;
       
         // Loads and seperates the relevant question from the full file
-        println(questionNum);
         this.fullLine = this.fileName[questionNum]; 
         this.optionsSplit = this.fullLine.split("#");
+        
         question = this.optionsSplit[0];
         return question;
       }
     } 
       
     else if (this.mode.equals("Random")) { 
+      
       // If all elements have been cycled through, display the end screen
       try {
         // Loads and seperates a random question from the full file
@@ -66,6 +68,7 @@ class Questions {
         println("A");
         return question; 
       }
+      
       catch (ArrayIndexOutOfBoundsException e) {
         return "finished";
       }

@@ -43,6 +43,7 @@ void displayScreen() {
 
   // Ending screen
   else if (windowName == "end") {
+    
     // Display restart button
      restart.setVisible(true);
 
@@ -61,6 +62,5 @@ void displayScreen() {
     text("Great job!", width/2, 250);
     textSize(25);
     text("Your score: " + String.valueOf(percent) + "%", width/2, 300); 
-    println(correct);
   }
 }

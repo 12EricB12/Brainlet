@@ -60,6 +60,7 @@ public void nextQuestionClicked(GButton source, GEvent event) { //_CODE_:nextQue
   
   answerSelected = false;
   current++;
+  
   nextQuestion();
   showText();
   redraw();
@@ -87,7 +88,7 @@ public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
   
   subjectSelection = new GDropList(this, 334, 320, 126, 63, 2, 10);
   subjectSelection.setItems(loadStrings("list_215520"), 0);
-  subjectSelection.addEventHandler(this, "dropList1_click1");
+  subjectSelection.addEventHandler(this, "subjectChosen");
   
   start = new GButton(this, 342, 255, 108, 51);
   start.setText("Start");

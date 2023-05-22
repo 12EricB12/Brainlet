@@ -99,7 +99,7 @@ void showText() {
 }
 
 void nextQuestion() {
-
+  println("Current question is", current);
   question = questionSet.nextQuestion(current, pastQuestions);
   answer = questionSet.getAnswer();
   options = questionSet.randomizeSelection(4);
@@ -126,9 +126,8 @@ void checkAnswer() {
     checkLocation();
     
     if (!answerSelected) {
-      println("A");
       correct++;
-      current++;
+      //current++;
       answerSelected = true;
     }
     
@@ -145,7 +144,7 @@ void checkAnswer() {
     checkLocation(); 
     
     if (!answerSelected) {
-      current++;
+      //current++;
     }
     
     answerSelected = true;
