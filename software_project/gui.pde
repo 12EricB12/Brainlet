@@ -14,14 +14,14 @@
  * =========================================================
  */
 
-public void button1_click1(GButton source, GEvent event) { //_CODE_:start:274724:
+public void startClicked(GButton source, GEvent event) { //_CODE_:start:274724:
   windowName = "begin";
   window1.setVisible(true);
   start.setVisible(false);
   subjectSelection.setVisible(false);
-} //_CODE_:start:274724: //<>// //<>//
+} //_CODE_:start:274724: //<>//
 
-public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
+public void subjectChosen(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   subSelected = subjectSelection.getSelectedText();
   subjectSelected();
 } //_CODE_:subjectSelection:215520:
@@ -52,7 +52,7 @@ public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
   checkAnswer();
 } //_CODE_:answer3:262656:
 
-public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
+public void nextQuestionClicked(GButton source, GEvent event) { //_CODE_:nextQuestion:276653:
   answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
@@ -65,7 +65,7 @@ public void NextQuestion(GButton source, GEvent event) { //_CODE_:nextQuestion:2
   redraw();
 } //_CODE_:nextQuestion:276653:
 
-public void numofTries(GSlider source, GEvent event) { //_CODE_:numTries:752762:
+public void attemptsChanged(GSlider source, GEvent event) { //_CODE_:numTries:752762:
   numOfTries = numTries.getValueI();
 } //_CODE_:numTries:752762:
 
@@ -91,7 +91,7 @@ public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
   
   start = new GButton(this, 342, 255, 108, 51);
   start.setText("Start");
-  start.addEventHandler(this, "button1_click1");
+  start.addEventHandler(this, "startClicked");
   
   subjectSelection.setVisible(true);
   start.setVisible(true);
@@ -121,10 +121,10 @@ public void createGUI() {
   surface.setTitle("Sketch Window");
   start = new GButton(this, 342, 255, 108, 51);
   start.setText("Start");
-  start.addEventHandler(this, "button1_click1");
+  start.addEventHandler(this, "startClicked");
   subjectSelection = new GDropList(this, 334, 320, 126, 63, 2, 10);
   subjectSelection.setItems(loadStrings("list_215520"), 0);
-  subjectSelection.addEventHandler(this, "dropList1_click1");
+  subjectSelection.addEventHandler(this, "subjectChosen");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
@@ -137,15 +137,15 @@ public void createGUI() {
   diffLevel.setNumberFormat(G4P.INTEGER, 0);
   diffLevel.setOpaque(false);
   diffLevel.addEventHandler(this, "changeDiffLevel");
-  label1 = new GLabel(window1, 2, 76, 37, 17);
+  label1 = new GLabel(window1, 8, 76, 37, 20); ////////////
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Easy");
   label1.setOpaque(false);
-  label2 = new GLabel(window1, 47, 76, 57, 20);
+  label2 = new GLabel(window1, 47, 76, 57, 20); //////////////
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label2.setText("Moderate");
   label2.setOpaque(false);
-  label3 = new GLabel(window1, 111, 76, 36, 18);
+  label3 = new GLabel(window1, 107, 76, 37, 20); ////////////
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("Hard");
   label3.setOpaque(false);
@@ -160,7 +160,7 @@ public void createGUI() {
   answer3.addEventHandler(this, "Answer3");
   nextQuestion = new GButton(window1, 157, 307, 80, 30);
   nextQuestion.setText("Next Question");
-  nextQuestion.addEventHandler(this, "NextQuestion");
+  nextQuestion.addEventHandler(this, "nextQuestionClicked");
   numTries = new GSlider(window1, 163, 89, 121, 54, 10.0);
   numTries.setShowValue(true);
   numTries.setLimits(1, 1, 3);
@@ -169,10 +169,10 @@ public void createGUI() {
   numTries.setShowTicks(true);
   numTries.setNumberFormat(G4P.INTEGER, 0);
   numTries.setOpaque(false);
-  numTries.addEventHandler(this, "numofTries");
+  numTries.addEventHandler(this, "attemptsChanged");
   label4 = new GLabel(window1, 147, 60, 151, 30);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label4.setText("Controls the amount of tries on each question");
+  label4.setText("Number of Attempts");
   label4.setOpaque(false);
   answer4 = new GButton(window1, 174, 239, 80, 30);
   answer4.setText("Answer 4");
