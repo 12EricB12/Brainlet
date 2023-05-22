@@ -77,6 +77,7 @@ void showText() {
     Collections.shuffle(optionsArray);
     answerLocation = optionsArray.indexOf(answer);
   }
+  
   else {
     current = 0;
     sliderChanged = !sliderChanged; // Makes sure that the answers are still shuffled after changing the bar
@@ -222,7 +223,7 @@ String[] deleteElemInArray(String[] pastArray, String elem) {
   }
 
   String[] newArr = newArray.toArray(new String[newArray.size()]);
-  return newArr;
+    return newArr;
 }
 
 

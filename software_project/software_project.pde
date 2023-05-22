@@ -38,7 +38,7 @@ void setup() {
   mainMenu = loadImage("background.jpg");
   questionScreen = loadImage("startquiz.jpg");
   endingScreen = loadImage("endingImage.jpg");
-  //<>// //<>//
+  //<>//
   createGUI();
   mainMenu(); 
 }
