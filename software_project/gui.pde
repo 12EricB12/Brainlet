@@ -15,7 +15,7 @@
  */
 
 public void startClicked(GButton source, GEvent event) { //_CODE_:start:274724:
-  windowName = "begin";
+  windowName = "play";
   window1.setVisible(true);
   start.setVisible(false);
   subjectSelection.setVisible(false);
@@ -37,17 +37,17 @@ public void changeDiffLevel(GSlider source, GEvent event) { //_CODE_:diffLevel:4
   redraw();
 } //_CODE_:diffLevel:484514:
 
-public void Answer2(GButton source, GEvent event) { //_CODE_:answer2:654967:
+public void answer2_clicked(GButton source, GEvent event) { //_CODE_:answer2:654967:
   buttonClicked = 1;
   checkAnswer();
 }
 
-public void Answer1(GButton source, GEvent event) { //_CODE_:answer1:929402:
+public void answer1_clicked(GButton source, GEvent event) { //_CODE_:answer1:929402:
   buttonClicked = 0;
   checkAnswer();
 } //_CODE_:answer1:929402:
 
-public void Answer3(GButton source, GEvent event) { //_CODE_:answer3:262656:
+public void answer3_clicked(GButton source, GEvent event) { //_CODE_:answer3:262656:
   buttonClicked = 2;
   checkAnswer();
 } //_CODE_:answer3:262656:
@@ -70,41 +70,41 @@ public void attemptsChanged(GSlider source, GEvent event) { //_CODE_:numTries:75
   numOfTries = numTries.getValueI();
 } //_CODE_:numTries:752762:
 
-public void Answer4(GButton source, GEvent event) { //_CODE_:answer4:556391:
+public void answer4_clicked(GButton source, GEvent event) { //_CODE_:answer4:556391:
   buttonClicked = 4;
   checkAnswer();
 } //_CODE_:answer4:556391:
 
-public void Reset(GButton source, GEvent event) { //_CODE_:reset:241784:
+public void resetClicked(GButton source, GEvent event) { //_CODE_:reset:241784:
+
+  // Reset the colours
   answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
 
-  // Reset values
-  current = 0;
-  correct = 0;
-  pastQuestions.clear();
+  if (reset.getText().equals("Reset")) {
+    // Reset values
+    current = 0;
+    correct = 0;
+    pastQuestions.clear();
+    loadQuestions();
+    
+    reset.setText("Restart");
+    reset.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
+  }
   
-  subjectSelection = new GDropList(this, 334, 320, 126, 63, 2, 10);
-  subjectSelection.setItems(loadStrings("list_215520"), 0);
-  subjectSelection.addEventHandler(this, "subjectChosen");
+  else {
+    mainMenu();
+   
+    // Call these functions again
+    subjectSelected();
+    loadQuestions();
+    redraw();
+   
+    
+  }
   
-  start = new GButton(this, 342, 255, 108, 51);
-  start.setText("Start");
-  start.addEventHandler(this, "startClicked");
-  
-  subjectSelection.setVisible(true);
-  start.setVisible(true);
-
-  // Call these functions again
-  subjectSelected();
-  loadQuestions();
-  
-  subjectSelection.draw();
-  
-  windowName = "start"; // Reset the window to the start menu
-  redraw();
 } //_CODE_:reset:241784:
 
 public void restartClicked(GButton source, GEvent event) { //_CODE_:restart:546326:
@@ -138,27 +138,27 @@ public void createGUI() {
   diffLevel.setNumberFormat(G4P.INTEGER, 0);
   diffLevel.setOpaque(false);
   diffLevel.addEventHandler(this, "changeDiffLevel");
-  label1 = new GLabel(window1, 8, 76, 37, 20); ////////////
+  label1 = new GLabel(window1, 8, 76, 37, 20);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Easy");
   label1.setOpaque(false);
-  label2 = new GLabel(window1, 47, 76, 57, 20); //////////////
+  label2 = new GLabel(window1, 47, 76, 57, 20);
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label2.setText("Moderate");
   label2.setOpaque(false);
-  label3 = new GLabel(window1, 107, 76, 37, 20); ////////////
+  label3 = new GLabel(window1, 107, 76, 37, 20); 
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("Hard");
   label3.setOpaque(false);
   answer2 = new GButton(window1, 174, 169, 80, 30);
   answer2.setText("Answer 2");
-  answer2.addEventHandler(this, "Answer2");
+  answer2.addEventHandler(this, "answer2_clicked");
   answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
-  answer1.addEventHandler(this, "Answer1");
+  answer1.addEventHandler(this, "answer1_clicked");
   answer3 = new GButton(window1, 37, 239, 80, 30);
   answer3.setText("Answer 3");
-  answer3.addEventHandler(this, "Answer3");
+  answer3.addEventHandler(this, "answer3_clicked");
   nextQuestion = new GButton(window1, 157, 307, 80, 30);
   nextQuestion.setText("Next Question");
   nextQuestion.addEventHandler(this, "nextQuestionClicked");
@@ -177,10 +177,10 @@ public void createGUI() {
   label4.setOpaque(false);
   answer4 = new GButton(window1, 174, 239, 80, 30);
   answer4.setText("Answer 4");
-  answer4.addEventHandler(this, "Answer4");
+  answer4.addEventHandler(this, "answer4_clicked");
   reset = new GButton(window1, 45, 307, 80, 30);
   reset.setText("Reset");
-  reset.addEventHandler(this, "Reset");
+  reset.addEventHandler(this, "resetClicked");
   restart = new GButton(window1, 100, 365, 80, 30);
   restart.setText("Restart");
   restart.addEventHandler(this, "restartClicked");

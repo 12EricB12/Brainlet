@@ -3,6 +3,8 @@ void mainMenu() {
   // Set the window name to "start" and hide GUI window
   windowName = "start";
   window1.setVisible(false);
+  start.setVisible(true);
+  subjectSelection.setVisible(true);
 }
 
 
@@ -23,7 +25,7 @@ void displayScreen() {
   }
 
   // Start button was clicked
-  else if (windowName == "begin") {
+  else if (windowName == "play") {
     
     // Hide the "restart" button
      restart.setVisible(false);
@@ -46,13 +48,11 @@ void displayScreen() {
     
     // Display restart button
      restart.setVisible(true);
-
       
     // Text formatting
     textSize(50);
     textAlign(CENTER);
 
-    
     int percent = calculatePercent(correct, numOfQuestions);
     
     // Image formatting

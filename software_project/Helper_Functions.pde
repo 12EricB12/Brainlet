@@ -99,7 +99,7 @@ void showText() {
 }
 
 void nextQuestion() {
-  println("Current question is", current);
+  
   question = questionSet.nextQuestion(current, pastQuestions);
   answer = questionSet.getAnswer();
   options = questionSet.randomizeSelection(4);
