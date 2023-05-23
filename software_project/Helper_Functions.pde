@@ -164,6 +164,7 @@ void redButton() {
   else if (buttonClicked == 3) {
     answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
+  
 }
 
 void checkLocation() {

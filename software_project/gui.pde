@@ -128,7 +128,7 @@ public void createGUI() {
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
-  diffLevel = new GSlider(window1, 23, 89, 100, 40, 10.0);
+  diffLevel = new GSlider(window1, 23, 89, 100, 50, 10.0);
   diffLevel.setLimits(1, 1, 3);
   diffLevel.setNbrTicks(3);
   diffLevel.setStickToTicks(true);
@@ -136,15 +136,15 @@ public void createGUI() {
   diffLevel.setNumberFormat(G4P.INTEGER, 0);
   diffLevel.setOpaque(false);
   diffLevel.addEventHandler(this, "changeDiffLevel");
-  label1 = new GLabel(window1, 8, 76, 37, 20);
+  label1 = new GLabel(window1, 8, 80, 37, 20);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Easy");
   label1.setOpaque(false);
-  label2 = new GLabel(window1, 47, 76, 57, 20);
+  label2 = new GLabel(window1, 47, 80, 57, 20);
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label2.setText("Moderate");
   label2.setOpaque(false);
-  label3 = new GLabel(window1, 107, 76, 37, 20); 
+  label3 = new GLabel(window1, 107, 80, 37, 20); 
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("Hard");
   label3.setOpaque(false);
@@ -157,10 +157,11 @@ public void createGUI() {
   answer3 = new GButton(window1, 37, 239, 80, 30);
   answer3.setText("Answer 3");
   answer3.addEventHandler(this, "answer3_clicked");
-  nextQuestion = new GButton(window1, 157, 307, 80, 30);
+  nextQuestion = new GButton(window1, 174, 307, 80, 30); 
   nextQuestion.setText("Next Question");
+  nextQuestion.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   nextQuestion.addEventHandler(this, "nextQuestionClicked");
-  numTries = new GSlider(window1, 163, 89, 121, 54, 10.0);
+  numTries = new GSlider(window1, 163, 89, 100, 50, 10.0); 
   numTries.setShowValue(true);
   numTries.setLimits(1, 1, 3);
   numTries.setNbrTicks(3);
@@ -169,19 +170,26 @@ public void createGUI() {
   numTries.setNumberFormat(G4P.INTEGER, 0);
   numTries.setOpaque(false);
   numTries.addEventHandler(this, "attemptsChanged");
-  label4 = new GLabel(window1, 147, 60, 151, 30);
+  
+  label4 = new GLabel(window1, 147, 55, 151, 30);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label4.setText("Number of Attempts");
+  label4.setTextBold();
   label4.setOpaque(false);
+  
+  label5 = new GLabel( window1, 5, 55, 151, 30);
+  label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label5.setText("Difficulty Mode");
+  label5.setTextBold();
+  label5.setOpaque(false);
+  
   answer4 = new GButton(window1, 174, 239, 80, 30);
   answer4.setText("Answer 4");
   answer4.addEventHandler(this, "answer4_clicked");
-  reset = new GButton(window1, 45, 307, 80, 30);
+  reset = new GButton(window1, 37, 307, 80, 30);
+  reset.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   reset.setText("Reset");
   reset.addEventHandler(this, "resetClicked");
-  //restart = new GButton(window1, 100, 365, 80, 30);
-  //restart.setText("Restart");
-  //restart.addEventHandler(this, "restartClicked");
   window1.loop();
 }
 
@@ -200,6 +208,7 @@ GButton answer3;
 GButton nextQuestion; 
 GSlider numTries; 
 GLabel label4; 
+GLabel label5;
 GButton answer4; 
 GButton reset; 
 //GButton restart; 
