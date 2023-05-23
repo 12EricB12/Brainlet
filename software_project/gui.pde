@@ -1,4 +1,4 @@
-/* ========================================================= //<>// //<>// //<>//
+/* =========================================================  //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -121,7 +121,7 @@ public void createGUI() {
   start = new GButton(this, 342, 255, 108, 51);
   start.setText("Start");
   start.addEventHandler(this, "startClicked");
-  subjectSelection = new GDropList(this, 334, 320, 126, 63, 2, 10);
+  subjectSelection = new GDropList(this, 334, 320, 130, 123, 4, 10);
   subjectSelection.setItems(loadStrings("list_215520"), 0);
   subjectSelection.addEventHandler(this, "subjectChosen");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 500, JAVA2D);
@@ -211,4 +211,3 @@ GLabel label4;
 GLabel label5;
 GButton answer4; 
 GButton reset; 
-//GButton restart; 
