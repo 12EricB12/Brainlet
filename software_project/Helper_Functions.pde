@@ -47,7 +47,7 @@ void loadQuestions() {
   
   // Get the answers and randomize the options
   answer = questionSet.getAnswer(); 
-  options = questionSet.randomizeSelection(4); 
+  options = questionSet.randomizeSelection(); 
 }
 
 
@@ -101,10 +101,10 @@ void showText() {
 
 void nextQuestion() {
   
-  question = questionSet.nextQuestion(current, pastQuestions);
-  answer = questionSet.getAnswer();
-  options = questionSet.randomizeSelection(4);
-  splitQuestion = question.split("");
+  question = questionSet.nextQuestion(current, pastQuestions); // Loads the next question of the set
+  answer = questionSet.getAnswer(); // Gets the answer
+  options = questionSet.randomizeSelection(); // Chooses the 4 options the user can pick
+  splitQuestion = question.split(""); // Splits the question into its parts
 
   // All the questions have been asked
   if (question.equals( "finished")) {
@@ -124,8 +124,9 @@ void checkAnswer() {
   
   // User selected the answer
   if (buttonClicked == answerLocation) { 
-    checkLocation();
+    checkLocation(); // Turns the buttons that aren't the answer red
     
+    // Makes sure that the user can't abuse an exploit where they can click the answer button multiple times to get a very high score
     if (!answerSelected) {
       correct++;
       answerSelected = true;
@@ -149,18 +150,18 @@ void checkAnswer() {
   }
 }
 
-// Whatever button the user clicks, color it red
+// Whatever button the user clicks, color it red if it is incorrect
 void redButton() {
   if (buttonClicked == 0) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME); // Button 1 was clicked but is incorrect
   }
   
   else if (buttonClicked == 1) {
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME); // Button 2 was clicked but is incorrect
   }
   
   else if (buttonClicked == 2) {
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME); // etc.
   }
   
   else if (buttonClicked == 3) {
@@ -205,7 +206,7 @@ void checkLocation() {
   }
 }
 
-
+// Used for endless mode (prevents the same option from appearing too frequently)
 ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int randomLvl) {
   ArrayList<String> newArrayLst = arrayLst;
   String pastValue;
@@ -215,17 +216,18 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
     newArrayLst.add(currentQ); 
   } 
   
+  // Otherwise, rotate the arrayList
   else {
     for (int i = 0; i < arrayLst.size()-1; i++) {
       
       if (i == 0) {
-        pastValue = arrayLst.get(i);
-        newArrayLst.set(i, currentQ);
+        pastValue = arrayLst.get(i); // Take the value desired to input into the array and remove the element in it's place
+        newArrayLst.set(i, currentQ); // Set the new first position as that element
       } 
       
       else {
-        pastValue = arrayLst.get(i);
-        newArrayLst.set(i, pastValue);
+        pastValue = arrayLst.get(i); // Takes the past value of the input array and add it to the new array
+        newArrayLst.set(i, pastValue); // Put the value where its required  
       }
     }
   }
@@ -233,17 +235,18 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
   
 }
 
+// Used in random mode to ensure the same element isn't cycled again
 String[] deleteElemInArray(String[] pastArray, String elem) {
-  ArrayList<String> newArray = new ArrayList<String>();
+  ArrayList<String> newArray = new ArrayList<String>(); 
 
   for (int i = 0; i < pastArray.length; i++) {
-    if (!pastArray[i].equals(elem)) {
-      newArray.add(pastArray[i]);
+    if (!pastArray[i].equals(elem)) { // If the element is new, add it to the new array
+      newArray.add(pastArray[i]); // Otherwise, skip the element so it removes it from the new list
     }
   }
 
-  String[] newArr = newArray.toArray(new String[newArray.size()]);
-    return newArr;
+  String[] newArr = newArray.toArray(new String[newArray.size()]); // ArrayList to Array conversion
+  return newArr;
 }
 
 // Calculates the score 

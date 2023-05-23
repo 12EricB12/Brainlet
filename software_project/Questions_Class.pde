@@ -21,7 +21,7 @@ class Questions {
   
   
   String getAnswer() {
-    String answers = optionsSplit[1];
+    String answers = optionsSplit[1]; // Takes the second part of the full line, which is the answer
     String[] finalOptions = answers.split(", ");
     
     return finalOptions[0];
@@ -29,7 +29,7 @@ class Questions {
   
   
   String getQuestion() {
-    String question = optionsSplit[0];
+    String question = optionsSplit[0]; // Takes the first part of the full line, which is the question
     
     return question;
   }
@@ -98,10 +98,10 @@ class Questions {
     }
   }
   
-  
-  String[] randomizeSelection( int numQuestions) { 
+  // Randomizes the answers
+  String[] randomizeSelection() { 
     String selection = optionsSplit[1];
-    String[] selectionLst = selection.split(", ");
+    String[] selectionLst = selection.split(", "); // Splits the answers when there is a comma
     String[] choices;
     
     choices = Arrays.copyOfRange(selectionLst, 1, 4);

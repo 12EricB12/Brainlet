@@ -57,7 +57,6 @@ void displayScreen() {
     endingScreen.resize(800, 500);
     background(endingScreen);
 
-
    text("End of Practice", width/2, 250);
     
     textSize(25);
