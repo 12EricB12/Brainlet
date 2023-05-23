@@ -36,7 +36,6 @@ class Questions {
       
       // The last question was reached
       if (questionNum == this.fileName.length) {
-        println("The question number is ", questionNum);
         return "finished";
       } 
       
@@ -52,11 +51,13 @@ class Questions {
         return question;
       }
     } 
-      
+    
+    // Random mode was selected
     else if (this.mode.equals("Random")) { 
       
       // If all elements have been cycled through, display the end screen
       try {
+        
         // Loads and seperates a random question from the full file
         this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; 
         this.optionsSplit = this.fullLine.split("#");

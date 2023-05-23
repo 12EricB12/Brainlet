@@ -3,5 +3,5 @@ This scale is used to measure earthquake intensity by determining the amount of 
 Magma is composed of various elements. Which of the following is not present in magma? #Beryllium, Aluminum, Sodium, Oxygen
 When volcanoes erupt, they eject small rock fragments into the atmosphere. Often, these pieces are large, which destroys communication lines and buries roads. What are these rock fragments called? #Tephra, Felsic, Ash, Magma
 This atmospheric layer contains 75% of the atmosphere’s mass. Due to gravity, it has the greatest air pressure and all weather occurs in this layer. #Troposphere, Stratosphere, Mesosphere, Exosphere
-The formation of a tornado is reliant on several factors, including strong convection currents. The main area is formed by the presence of convection currents which fills the sky with moisture and energy. What part of a tornado is being formed? #Funnel, Eyewall, Magma, Epicenter
+The formation of a tornado relies on several factors, including strong convection currents. The main area is formed by convection currents which fills the sky with moisture and energy. What part of a tornado is being formed? #Funnel, Eyewall, Magma, Epicenter
 After a volcanic eruption, heavy rains and melting snow can mix with volcanic ash and rocks. This creates massive mudflows that travel 80km. What are these mudflows called? #Lahars, Lava, Batholiths, Magma
