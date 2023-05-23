@@ -11,7 +11,7 @@ void mainMenu() {
 void displayScreen() {
 
   // Displays the starting screen
-  if (windowName == "start") {
+  if (windowName.equals("start")) {
 
     // Text formatting
     fill(255);
@@ -21,14 +21,15 @@ void displayScreen() {
     // Image formatting 
     mainMenu.resize(800, 500);
     background(mainMenu);
+    
     text("Welcome to Brainlet", width/2, 225);
   }
 
   // Start button was clicked
-  else if (windowName == "play") {
+  else if (windowName.equals("play")) {
     
     // Hide the "restart" button
-     restart.setVisible(false);
+     //restart.setVisible(false);
 
     // Text formatting
     textSize(20);
@@ -44,10 +45,10 @@ void displayScreen() {
   } 
 
   // Ending screen
-  else if (windowName == "end") {
+  else if (windowName.equals("end")) {
     
     // Display restart button
-     restart.setVisible(true);
+     //restart.setVisible(true);
       
     // Text formatting
     textSize(50);

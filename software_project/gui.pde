@@ -15,10 +15,11 @@
  */
 
 public void startClicked(GButton source, GEvent event) { //_CODE_:start:274724:
-  windowName = "play";
-  window1.setVisible(true);
-  start.setVisible(false);
-  subjectSelection.setVisible(false);
+    windowName = "play";
+    window1.setVisible(true);
+    start.setVisible(false);
+    subjectSelection.setVisible(false);
+
 } //_CODE_:start:274724: //<>//
 
 public void subjectChosen(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
@@ -84,7 +85,8 @@ public void resetClicked(GButton source, GEvent event) { //_CODE_:reset:241784:
   answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
 
   if (reset.getText().equals("Reset")) {
-    // Reset values
+    
+    // Reset values and empty the array
     current = 0;
     correct = 0;
     pastQuestions.clear();
@@ -94,22 +96,18 @@ public void resetClicked(GButton source, GEvent event) { //_CODE_:reset:241784:
     reset.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   }
   
-  else {
+  else if (reset.getText().equals("Restart")){
     mainMenu();
-   
-    // Call these functions again
-    subjectSelected();
-    loadQuestions();
-    redraw();
-   
-    
+    reset.setText("Reset");
+    reset.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+    redraw(); 
   }
   
 } //_CODE_:reset:241784:
 
-public void restartClicked(GButton source, GEvent event) { //_CODE_:restart:546326:
-  println("restart - GButton >> GEvent." + event + " @ " + millis());
-} //_CODE_:restart:546326:
+//public void restartClicked(GButton source, GEvent event) { //_CODE_:restart:546326:
+//  println("restart - GButton >> GEvent." + event + " @ " + millis());
+//} //_CODE_:restart:546326:
 
 
 
@@ -181,9 +179,9 @@ public void createGUI() {
   reset = new GButton(window1, 45, 307, 80, 30);
   reset.setText("Reset");
   reset.addEventHandler(this, "resetClicked");
-  restart = new GButton(window1, 100, 365, 80, 30);
-  restart.setText("Restart");
-  restart.addEventHandler(this, "restartClicked");
+  //restart = new GButton(window1, 100, 365, 80, 30);
+  //restart.setText("Restart");
+  //restart.addEventHandler(this, "restartClicked");
   window1.loop();
 }
 
@@ -204,4 +202,4 @@ GSlider numTries;
 GLabel label4; 
 GButton answer4; 
 GButton reset; 
-GButton restart; 
+//GButton restart; 

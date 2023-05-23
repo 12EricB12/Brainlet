@@ -80,7 +80,8 @@ void showText() {
   
   else {
     current = 0;
-    sliderChanged = !sliderChanged; // Makes sure that the answers are still shuffled after changing the bar
+    // Makes sure that the answers are still shuffled after changing the bar
+    sliderChanged = !sliderChanged; 
   }
   
   // Outputs the remaining options
@@ -111,7 +112,7 @@ void nextQuestion() {
   }
   
   // If endless mode, rotate through the questions
-  if (mode == "Endless") {
+  if (mode.equals("Endless")) {
     pastQuestions = rotateArrayList(pastQuestions, question, randomness);
   }
   
