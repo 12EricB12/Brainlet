@@ -63,7 +63,7 @@ void showText() {
 
   // FOR THE ANSWER
   text("Possible Answers:", 200, 300);
-  textSize(answerSize); 
+  textSize(20); 
   
   // Add the answer to the array
   optionsArray.add(answer);
@@ -87,13 +87,13 @@ void showText() {
   
   // Outputs the remaining options
   for (int i = 0; i < optionsArray.size(); i++) {
-    textSize(answerSize); 
+    textSize(20); 
 
     // Creates the remaining options
     text(String.valueOf(i + 1) + ". " + optionsArray.get(i), 200, yVal);
 
     // Set new y-value
-    yVal += answerSize;
+    yVal += 20;
   }
   
   // Empty the array
@@ -136,7 +136,7 @@ void checkAnswer() {
     attempts = 0;
   }
   
-  // Otherwise, increase their number of attempts
+  // Otherwise, increase their number of attempts and color the button red
   else {
     redButton();
     attempts++; 
@@ -151,23 +151,30 @@ void checkAnswer() {
   }
 }
 
+// Whatever button the user clicks, color it red
 void redButton() {
   if (buttonClicked == 0) {
     answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
+  
   else if (buttonClicked == 1) {
     answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
+  
   else if (buttonClicked == 2) {
     answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
+  
   else if (buttonClicked == 3) {
     answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
   
 }
 
+// Depending on the answer's location, color the buttons their relevant colours
 void checkLocation() {
+  
+  // Answer was the first option
   if (answerLocation == 0) {
     answer1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
     answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
@@ -199,6 +206,7 @@ void checkLocation() {
     answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   }
 }
+
 
 ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, int randomLvl) {
   ArrayList<String> newArrayLst = arrayLst;
@@ -240,7 +248,7 @@ String[] deleteElemInArray(String[] pastArray, String elem) {
     return newArr;
 }
 
-
+// Calculates the score 
 int calculatePercent(float correct, float total) {
   return round((correct/total) * 100);
 }

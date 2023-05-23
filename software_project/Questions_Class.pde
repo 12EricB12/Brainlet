@@ -36,7 +36,7 @@ class Questions {
   
   String nextQuestion(int questionNum, ArrayList<String> selection) {
     
-    // The user chose the "test" mode4
+    // The user chose the "test" mode
     if (this.mode.equals("Test")) {
       
       // The last question was reached
@@ -47,13 +47,12 @@ class Questions {
       
       // There are still unasked questions
       else {
-        String question;
-      
+
         // Loads and seperates the relevant question from the full file
         this.fullLine = this.fileName[questionNum]; 
         this.optionsSplit = this.fullLine.split("#");
-        
         question = this.optionsSplit[0];
+        
         return question;
       }
     } 
@@ -61,21 +60,20 @@ class Questions {
     // Random mode was selected
     else if (this.mode.equals("Random")) { 
       
-      // If all elements have been cycled through, display the end screen
+      // All the questions have not been asked yet
       try {
         
         // Loads and seperates a random question from the full file
         this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; 
         this.optionsSplit = this.fullLine.split("#");
-        
-        String question = this.optionsSplit[0];
+        question = this.optionsSplit[0];
         
         // Deletes the element that was randomly selected to prevent it from being reselected
         this.fileName = deleteElemInArray(this.fileName, this.fullLine); 
-        println("A");
         return question; 
       }
       
+      // Every question has been asked
       catch (ArrayIndexOutOfBoundsException e) {
         return "finished";
       }
@@ -85,7 +83,9 @@ class Questions {
     else { 
        
       for (int i = 0; i < selection.size(); i++) {
+        
         while (this.fullLine.contains(selection.get(i))) {
+          
           // Try again if already present in the list of previous responses
           this.fullLine = this.fileName[round( random( this.fileName.length-1 ))]; 
         }
