@@ -143,16 +143,29 @@ public void createGUI() {
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("Hard");
   label3.setOpaque(false);
-  answer2 = new GButton(window1, 174, 169, 80, 30);
-  answer2.setText("Answer 2");
-  answer2.addEventHandler(this, "answer2_clicked");
+  label4 = new GLabel(window1, 147, 55, 151, 30);
+  label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label4.setText("Number of Attempts");
+  label4.setTextBold();
+  label4.setOpaque(false);
+  label5 = new GLabel( window1, 5, 55, 151, 30);
+  label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label5.setText("Difficulty Mode");
+  label5.setTextBold();
+  label5.setOpaque(false);
   answer1 = new GButton(window1, 37, 169, 80, 30);
   answer1.setText("Answer 1");
   answer1.addEventHandler(this, "answer1_clicked");
+  answer2 = new GButton(window1, 174, 169, 80, 30);
+  answer2.setText("Answer 2");
+  answer2.addEventHandler(this, "answer2_clicked");
   answer3 = new GButton(window1, 37, 239, 80, 30);
   answer3.setText("Answer 3");
   answer3.addEventHandler(this, "answer3_clicked");
-  nextQuestion = new GButton(window1, 174, 307, 80, 30); 
+  answer4 = new GButton(window1, 174, 239, 80, 30);
+  answer4.setText("Answer 4");
+  answer4.addEventHandler(this, "answer4_clicked");
+  nextQuestion = new GButton(window1, 174, 307, 90, 30); 
   nextQuestion.setText("Next Question");
   nextQuestion.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   nextQuestion.addEventHandler(this, "nextQuestionClicked");
@@ -165,22 +178,6 @@ public void createGUI() {
   numTries.setNumberFormat(G4P.INTEGER, 0);
   numTries.setOpaque(false);
   numTries.addEventHandler(this, "attemptsChanged");
-  
-  label4 = new GLabel(window1, 147, 55, 151, 30);
-  label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label4.setText("Number of Attempts");
-  label4.setTextBold();
-  label4.setOpaque(false);
-  
-  label5 = new GLabel( window1, 5, 55, 151, 30);
-  label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label5.setText("Difficulty Mode");
-  label5.setTextBold();
-  label5.setOpaque(false);
-  
-  answer4 = new GButton(window1, 174, 239, 80, 30);
-  answer4.setText("Answer 4");
-  answer4.addEventHandler(this, "answer4_clicked");
   reset = new GButton(window1, 37, 307, 90, 30);
   reset.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   reset.setText("Reset");

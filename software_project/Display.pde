@@ -57,7 +57,7 @@ void displayScreen() {
     endingScreen.resize(800, 500);
     background(endingScreen);
 
-   text("End of Practice", width/2, 250);
+   text("You have reached the end", width/2, 250);
     
     textSize(25);
     text("Your score: " + String.valueOf(percent) + "%", width/2, 300); 
