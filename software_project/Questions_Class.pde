@@ -8,7 +8,12 @@ class Questions {
   String mode;
   
   Questions(String[] fileStrings, String m) {
-    this.fullLine = fileStrings[round( random( fileStrings.length-1 ))]; // Loads one line from the full file
+    if (!m.equals("Test")) {
+      this.fullLine = fileStrings[round( random( fileStrings.length-1 ))]; // Loads one line from the full file
+    }
+    else {
+      this.fullLine = fileStrings[0]; // Loads the first line from the file
+    }
     this.fileName = fileStrings;
     this.optionsSplit = this.fullLine.split("#");
     this.mode = m;
