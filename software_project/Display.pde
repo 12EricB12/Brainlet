@@ -57,13 +57,8 @@ void displayScreen() {
     endingScreen.resize(800, 500);
     background(endingScreen);
 
-    if (percent >= 50) {
-      text("Terrific job!", width/2, 250);
-    }
-    
-    else {
-      text ("You still need practice", width/2, 250);
-    }
+
+   text("End of Practice", width/2, 250);
     
     textSize(25);
     text("Your score: " + String.valueOf(percent) + "%", width/2, 300); 

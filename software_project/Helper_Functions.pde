@@ -58,7 +58,6 @@ void showText() {
 
   // Displays the question on screen
   question = String.join("", splitQuestion);
-  println(question);
   text(question, 200, 130, 500, 500);
 
   // FOR THE ANSWER
@@ -129,7 +128,6 @@ void checkAnswer() {
     
     if (!answerSelected) {
       correct++;
-      current++;
       answerSelected = true;
     }
     
