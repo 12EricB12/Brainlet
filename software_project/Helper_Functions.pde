@@ -152,16 +152,19 @@ void checkAnswer() {
 
 // Whatever button the user clicks, color it red if it is incorrect
 void redButton() {
+  
+  // Button 1 was clicked but is incorrect
   if (buttonClicked == 0) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME); // Button 1 was clicked but is incorrect
+    answer1.setLocalColorScheme(GCScheme.RED_SCHEME); 
   }
   
+  // Button 2 was clicked but is incorrect
   else if (buttonClicked == 1) {
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME); // Button 2 was clicked but is incorrect
+    answer2.setLocalColorScheme(GCScheme.RED_SCHEME); 
   }
   
   else if (buttonClicked == 2) {
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME); // etc.
+    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
   
   else if (buttonClicked == 3) {
@@ -221,13 +224,21 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
     for (int i = 0; i < arrayLst.size()-1; i++) {
       
       if (i == 0) {
-        pastValue = arrayLst.get(i); // Take the value desired to input into the array and remove the element in it's place
-        newArrayLst.set(i, currentQ); // Set the new first position as that element
+        
+        // Take the desired value to input into the array and remove the element in its place
+        pastValue = arrayLst.get(i); 
+        
+        // Set the new first position as that element
+        newArrayLst.set(i, currentQ); 
       } 
       
       else {
-        pastValue = arrayLst.get(i); // Takes the past value of the input array and add it to the new array
-        newArrayLst.set(i, pastValue); // Put the value where its required  
+        
+        // Takes the past value of the input array and add it to the new array
+        pastValue = arrayLst.get(i); 
+        
+        // Put the value where it's required  
+        newArrayLst.set(i, pastValue); 
       }
     }
   }
@@ -240,12 +251,16 @@ String[] deleteElemInArray(String[] pastArray, String elem) {
   ArrayList<String> newArray = new ArrayList<String>(); 
 
   for (int i = 0; i < pastArray.length; i++) {
-    if (!pastArray[i].equals(elem)) { // If the element is new, add it to the new array
-      newArray.add(pastArray[i]); // Otherwise, skip the element so it removes it from the new list
+    
+    // If the element is new, add it to the new array
+    if (!pastArray[i].equals(elem)) { 
+      newArray.add(pastArray[i]); 
+      
     }
   }
-
-  String[] newArr = newArray.toArray(new String[newArray.size()]); // ArrayList to Array conversion
+  
+  // ArrayList to Array conversion
+  String[] newArr = newArray.toArray(new String[newArray.size()]); 
   return newArr;
 }
 

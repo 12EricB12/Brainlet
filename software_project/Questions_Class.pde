@@ -11,9 +11,11 @@ class Questions {
     if (!m.equals("Test")) {
       this.fullLine = fileStrings[round( random( fileStrings.length-1 ))]; // Loads one line from the full file
     }
+    
     else {
       this.fullLine = fileStrings[0]; // Loads the first line from the file
     }
+    
     this.fileName = fileStrings;
     this.optionsSplit = this.fullLine.split("#");
     this.mode = m;
@@ -21,7 +23,9 @@ class Questions {
   
   
   String getAnswer() {
-    String answers = optionsSplit[1]; // Takes the second part of the full line, which is the answer
+    
+    // Takes the second part of the full line
+    String answers = optionsSplit[1]; 
     String[] finalOptions = answers.split(", ");
     
     return finalOptions[0];
@@ -29,7 +33,8 @@ class Questions {
   
   
   String getQuestion() {
-    String question = optionsSplit[0]; // Takes the first part of the full line, which is the question
+    // Takes the first part of the full line, which is the question
+    String question = optionsSplit[0]; 
     
     return question;
   }
@@ -101,7 +106,9 @@ class Questions {
   // Randomizes the answers
   String[] randomizeSelection() { 
     String selection = optionsSplit[1];
-    String[] selectionLst = selection.split(", "); // Splits the answers when there is a comma
+    
+    // Splits the answers wherever there is a comma
+    String[] selectionLst = selection.split(", "); 
     String[] choices;
     
     choices = Arrays.copyOfRange(selectionLst, 1, 4);
