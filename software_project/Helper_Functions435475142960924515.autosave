@@ -58,7 +58,6 @@ void showText() {
 
   // Displays the question on screen
   question = String.join("", splitQuestion);
-  println(question);
   text(question, 200, 130, 500, 500);
 
   // FOR THE ANSWER
@@ -81,8 +80,7 @@ void showText() {
   
   else {
     current = 0;
-    // Makes sure that the answers are still shuffled after changing the bar
-    sliderChanged = !sliderChanged; 
+    sliderChanged = !sliderChanged; // Makes sure that the answers are still shuffled after changing the bar
   }
   
   // Outputs the remaining options
@@ -113,7 +111,7 @@ void nextQuestion() {
   }
   
   // If endless mode, rotate through the questions
-  if (mode.equals("Endless")) {
+  if (mode == "Endless") {
     pastQuestions = rotateArrayList(pastQuestions, question, randomness);
   }
   
@@ -129,7 +127,7 @@ void checkAnswer() {
     
     if (!answerSelected) {
       correct++;
-      current++;
+      //current++;
       answerSelected = true;
     }
     
@@ -138,7 +136,6 @@ void checkAnswer() {
   
   // Otherwise, increase their number of attempts
   else {
-    redButton();
     attempts++; 
   }
   
@@ -146,23 +143,12 @@ void checkAnswer() {
   if (numOfTries - attempts == 0) {
     checkLocation(); 
     
+    if (!answerSelected) {
+      //current++;
+    }
+    
     answerSelected = true;
     attempts = 0;
-  }
-}
-
-void redButton() {
-  if (buttonClicked == 0) {
-    answer1.setLocalColorScheme(GCScheme.RED_SCHEME);
-  }
-  else if (buttonClicked == 1) {
-    answer2.setLocalColorScheme(GCScheme.RED_SCHEME);
-  }
-  else if (buttonClicked == 2) {
-    answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
-  }
-  else if (buttonClicked == 3) {
-    answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
 }
 

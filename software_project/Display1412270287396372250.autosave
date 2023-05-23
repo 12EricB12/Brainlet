@@ -3,15 +3,13 @@ void mainMenu() {
   // Set the window name to "start" and hide GUI window
   windowName = "start";
   window1.setVisible(false);
-  start.setVisible(true);
-  subjectSelection.setVisible(true);
 }
 
 
 void displayScreen() {
 
   // Displays the starting screen
-  if (windowName.equals("start")) {
+  if (windowName == "start") {
 
     // Text formatting
     fill(255);
@@ -21,15 +19,14 @@ void displayScreen() {
     // Image formatting 
     mainMenu.resize(800, 500);
     background(mainMenu);
-    
     text("Welcome to Brainlet", width/2, 225);
   }
 
   // Start button was clicked
-  else if (windowName.equals("play")) {
+  else if (windowName == "begin") {
     
     // Hide the "restart" button
-     //restart.setVisible(false);
+     restart.setVisible(false);
 
     // Text formatting
     textSize(20);
@@ -45,16 +42,17 @@ void displayScreen() {
   } 
 
   // Ending screen
-  else if (windowName.equals("end")) {
-    
+  else if (windowName == "end") {
     // Display restart button
-     //restart.setVisible(true);
+     restart.setVisible(true);
+
       
     // Text formatting
     textSize(50);
     textAlign(CENTER);
 
-    float percent = calculatePercent(correct, numOfQuestions);
+    
+    int percent = calculatePercent(correct, numOfQuestions);
     
     // Image formatting
     endingScreen.resize(800, 500);
