@@ -93,7 +93,6 @@ public void resetClicked(GButton source, GEvent event) { //_CODE_:reset:241784:
     loadQuestions();
     
     reset.setText("Back to Main Menu");
-    //reset.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   }
   
   else if (reset.getText().equals("Back to Main Menu")){

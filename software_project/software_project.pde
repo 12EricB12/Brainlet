@@ -13,10 +13,9 @@ String subSelected; // Selected subject
 int numOfTries = 1; // Initial value
 int lvl; // Difficulty level
 int current = 0; // Current question
-int correct = 0; // Number of correct questions
+int correct = 0; // Number of correct answers
 int attempts;
 int numOfQuestions;
-int answerSize = 20;
 int answerLocation = 0;
 int buttonClicked;
 
