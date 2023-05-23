@@ -1,4 +1,4 @@
-/* ========================================================= //<>// //<>//
+/* ========================================================= //<>// //<>// //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -19,7 +19,7 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:274724:
   window1.setVisible(true);
   start.setVisible(false);
   subjectSelection.setVisible(false);
-} //_CODE_:start:274724: //<>//
+} //_CODE_:start:274724: //<>// //<>//
 
 public void subjectChosen(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   subSelected = subjectSelection.getSelectedText();
@@ -76,34 +76,42 @@ public void answer4_clicked(GButton source, GEvent event) { //_CODE_:answer4:556
 } //_CODE_:answer4:556391:
 
 public void resetClicked(GButton source, GEvent event) { //_CODE_:reset:241784:
-
-  // Reset the colours
-  answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-  answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-  answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-  answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
-
-  if (reset.getText().equals("Reset")) {
-    // Reset values
-    current = 0;
-    correct = 0;
-    pastQuestions.clear();
-    loadQuestions();
-    
-    reset.setText("Restart");
-    reset.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
-  }
   
-  else {
-    mainMenu();
+  // Reset the colours
+  //answer1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  //answer2.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  //answer3.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  //answer4.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+
+  //if (reset.getText().equals("Reset")) {
+  //  // Reset values
+  //  current = 0;
+  //  correct = 0;
+  //  pastQuestions.clear();
+  //  loadQuestions();
+    
+  //  reset.setText("Restart");
+  //  reset.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
+  //}
+  
+  //else {
+  //  mainMenu();
    
-    // Call these functions again
-    subjectSelected();
-    loadQuestions();
-    redraw();
+  //  // Call these functions again
+  //  subjectSelected();
+  //  loadQuestions();
+  //  redraw();
    
     
-  }
+  //}
+  current = 0;
+  correct = 0;
+  
+  subjectSelected();
+  loadQuestions();
+  nextQuestion();
+  showText();
+  redraw();
   
 } //_CODE_:reset:241784:
 

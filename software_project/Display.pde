@@ -53,7 +53,7 @@ void displayScreen() {
     textSize(50);
     textAlign(CENTER);
 
-    int percent = calculatePercent(correct, numOfQuestions);
+    float percent = calculatePercent(correct, numOfQuestions);
     
     // Image formatting
     endingScreen.resize(800, 500);
