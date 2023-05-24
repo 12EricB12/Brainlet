@@ -158,23 +158,26 @@ void redButton() {
   // Answer 1 was clicked but is incorrect
   if (buttonClicked == 0) {
     answer1.setLocalColorScheme(GCScheme.RED_SCHEME); 
+    answer1.setLocalColor(2, color(0) );
   }
   
   // Answer 2 was clicked but is incorrect
   else if (buttonClicked == 1) {
     answer2.setLocalColorScheme(GCScheme.RED_SCHEME); 
+    answer2.setLocalColor(2, color(0) );
   }
   
   // Answer 3 was clicked but is incorrect
   else if (buttonClicked == 2) {
     answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer3.setLocalColor(2, color(0) );
   }
   
   // Answer 4 was clicked but is incorrect
   else if (buttonClicked == 3) {
     answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
+    answer4.setLocalColor(2, color(0) );
   }
-  
 }
 
 // Depending on the answer's location, color the buttons their relevant colours
@@ -211,6 +214,12 @@ void checkLocation() {
     answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
     answer4.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   }
+  
+  // For ease of viewing, turn the font color to black
+  answer1.setLocalColor(2, color(0) );
+  answer2.setLocalColor(2, color(0) );
+  answer3.setLocalColor(2, color(0) );
+  answer4.setLocalColor(2, color(0) );
 }
 
 // Used for endless mode (prevents the same option from appearing too frequently)
