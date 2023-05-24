@@ -150,7 +150,7 @@ public void createGUI() {
   label4.setOpaque(false);
   label5 = new GLabel( window1, 5, 55, 151, 30);
   label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label5.setText("Difficulty Mode");
+  label5.setText("Difficulty Level");
   label5.setTextBold();
   label5.setOpaque(false);
   answer1 = new GButton(window1, 37, 169, 80, 30);
@@ -168,6 +168,7 @@ public void createGUI() {
   nextQuestion = new GButton(window1, 174, 307, 90, 30); 
   nextQuestion.setText("Next Question");
   nextQuestion.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
+  nextQuestion.setLocalColor(2, color(0) );
   nextQuestion.addEventHandler(this, "nextQuestionClicked");
   numTries = new GSlider(window1, 163, 89, 100, 50, 10.0); 
   numTries.setShowValue(true);
@@ -180,6 +181,7 @@ public void createGUI() {
   numTries.addEventHandler(this, "attemptsChanged");
   reset = new GButton(window1, 37, 307, 90, 30);
   reset.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
+  reset.setLocalColor(2, color(0) );
   reset.setText("Reset");
   reset.addEventHandler(this, "resetClicked");
   window1.loop();
