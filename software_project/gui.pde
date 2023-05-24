@@ -1,4 +1,4 @@
-/* =========================================================  //<>// //<>//
+/* =========================================================   //<>//
  * ====                   WARNING                        ===
  * =========================================================
  * The code in this tab has been generated from the GUI form
@@ -20,7 +20,7 @@ public void startClicked(GButton source, GEvent event) { //_CODE_:start:274724:
     start.setVisible(false);
     subjectSelection.setVisible(false);
  //<>//
-} //_CODE_:start:274724: //<>// //<>//
+} //_CODE_:start:274724:  //<>//
 
 public void subjectChosen(GDropList source, GEvent event) { //_CODE_:subjectSelection:215520:
   subSelected = subjectSelection.getSelectedText();
