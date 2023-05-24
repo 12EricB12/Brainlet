@@ -259,23 +259,6 @@ ArrayList<String> rotateArrayList(ArrayList<String> arrayLst, String currentQ, i
   
 }
 
-// Used in random mode to ensure the same element isn't cycled again
-String[] deleteElemInArray(String[] pastArray, String elem) {
-  ArrayList<String> newArray = new ArrayList<String>(); 
-
-  for (int i = 0; i < pastArray.length; i++) {
-    
-    // If the element is new, add it to the new array
-    if (!pastArray[i].equals(elem)) { 
-      newArray.add(pastArray[i]); 
-      
-    }
-  }
-  
-  // ArrayList to Array conversion
-  String[] newArr = newArray.toArray(new String[newArray.size()]); 
-  return newArr;
-}
 
 // Calculates the score 
 int calculatePercent(float correct, float total) {

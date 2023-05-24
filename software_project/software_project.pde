@@ -14,6 +14,7 @@ String answer, question;
 String windowName;
 String subSelected; // Selected subject
 
+int randomness = 4; // How "random" the questions are
 int numOfTries = 1; // Initial number of tries
 int lvl; // Difficulty level
 int current = 0; // Current question
@@ -25,11 +26,11 @@ int buttonClicked;
 
 boolean sliderChanged = false;
 boolean answerSelected = false;
+
 PImage mainMenu, questionScreen, endingScreen ; 
 
 // CHANGEABLE VALUES
-int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
-String mode = "Random"; // Possible options: Test, Endless, Random
+String mode = "Test"; // Possible options: Test, Endless
 
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();

@@ -68,28 +68,6 @@ class Questions {
       }
     } 
     
-    // Random mode was selected
-    else if (this.mode.equals("Random")) { 
-      
-      // All the questions have not been asked yet
-      try {
-        
-        // Loads and seperates a random question from the full file
-        this.fullLine = this.fileName[int( random( this.fileName.length-1 ))]; 
-        this.optionsSplit = this.fullLine.split("#");
-        question = this.optionsSplit[0];
-        
-        // Deletes the element that was randomly selected to prevent it from being reselected
-        this.fileName = deleteElemInArray(this.fileName, this.fullLine); 
-        return question; 
-      }
-      
-      // Every question has been asked
-      catch (ArrayIndexOutOfBoundsException e) {
-        return "finished";
-      }
-    }
-    
     // User chose the endless mode
     else { 
        
