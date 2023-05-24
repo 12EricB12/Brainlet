@@ -124,9 +124,11 @@ void checkAnswer() {
   
   // User selected the answer
   if (buttonClicked == answerLocation) { 
-    checkLocation(); // Turns the buttons that aren't the answer red
     
-    // Makes sure that the user can't abuse an exploit where they can click the answer button multiple times to get a very high score
+    // Turns the buttons that aren't the answer red
+    checkLocation(); 
+    
+    // Ensures that the user can't click the answer button multiple times to get a very high score
     if (!answerSelected) {
       correct++;
       answerSelected = true;
@@ -153,20 +155,22 @@ void checkAnswer() {
 // Whatever button the user clicks, color it red if it is incorrect
 void redButton() {
   
-  // Button 1 was clicked but is incorrect
+  // Answer 1 was clicked but is incorrect
   if (buttonClicked == 0) {
     answer1.setLocalColorScheme(GCScheme.RED_SCHEME); 
   }
   
-  // Button 2 was clicked but is incorrect
+  // Answer 2 was clicked but is incorrect
   else if (buttonClicked == 1) {
     answer2.setLocalColorScheme(GCScheme.RED_SCHEME); 
   }
   
+  // Answer 3 was clicked but is incorrect
   else if (buttonClicked == 2) {
     answer3.setLocalColorScheme(GCScheme.RED_SCHEME);
   }
   
+  // Answer 4 was clicked but is incorrect
   else if (buttonClicked == 3) {
     answer4.setLocalColorScheme(GCScheme.RED_SCHEME);
   }

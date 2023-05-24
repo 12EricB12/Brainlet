@@ -29,7 +29,7 @@ PImage mainMenu, questionScreen, endingScreen ;
 
 // CHANGEABLE VALUES
 int randomness = 4; // How "random" you want the questions to be. Be careful setting it too high as the program could run forever
-String mode = "Test"; // Possible options: Test, Endless, Random
+String mode = "Random"; // Possible options: Test, Endless, Random
 
 ArrayList<String> optionsArray = new ArrayList<String>();
 ArrayList<String> pastQuestions = new ArrayList<String>();
@@ -47,7 +47,6 @@ void setup() { //<>//
 }
 
 void draw() {
-  background(254, 221, 216);
   
   // Display the other screens //<>//
   displayScreen();  //<>//

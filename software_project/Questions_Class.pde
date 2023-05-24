@@ -8,12 +8,17 @@ class Questions {
   String mode;
   
   Questions(String[] fileStrings, String m) {
+    
     if (!m.equals("Test")) {
-      this.fullLine = fileStrings[round( random( fileStrings.length-1 ))]; // Loads one line from the full file
+      
+      // Loads a random line from the full file
+      this.fullLine = fileStrings[round( random( fileStrings.length-1 ))]; 
     }
     
     else {
-      this.fullLine = fileStrings[0]; // Loads the first line from the file
+      
+      // Loads the first line from the file
+      this.fullLine = fileStrings[0]; 
     }
     
     this.fileName = fileStrings;
@@ -24,7 +29,7 @@ class Questions {
   
   String getAnswer() {
     
-    // Takes the second part of the full line
+    // Take the second part of the full line
     String answers = optionsSplit[1]; 
     String[] finalOptions = answers.split(", ");
     
@@ -33,7 +38,8 @@ class Questions {
   
   
   String getQuestion() {
-    // Takes the first part of the full line, which is the question
+    
+    // Take the first part of the full line
     String question = optionsSplit[0]; 
     
     return question;
@@ -41,7 +47,7 @@ class Questions {
   
   String nextQuestion(int questionNum, ArrayList<String> selection) {
     
-    // The user chose the "test" mode
+    // The user chose "test" mode
     if (this.mode.equals("Test")) {
       
       // The last question was reached

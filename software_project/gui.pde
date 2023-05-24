@@ -72,7 +72,7 @@ public void attemptsChanged(GSlider source, GEvent event) { //_CODE_:numTries:75
 } //_CODE_:numTries:752762:
 
 public void answer4_clicked(GButton source, GEvent event) { //_CODE_:answer4:556391:
-  buttonClicked = 4;
+  buttonClicked = 3;
   checkAnswer();
 } //_CODE_:answer4:556391:
 
